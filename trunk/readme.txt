@@ -2,8 +2,8 @@
 Contributors: martinek
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss
 Requires at least: 3.0
-Tested up to: 4.2.2
-Stable tag: 1.5.0
+Tested up to: 4.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,13 +29,17 @@ If you managed to find bugs or want to correct some of my codes, please don't he
 
 == Frequently asked questions ==
 
-= How do i change the look of plugin? =
+= How do I change the look of plugin? =
 
 You can create new plugin theme by creating new <theme>.css file in `/wp-content/plugins/wowprogress/themes/` folder. Then select this theme from Settings > WoW Progress.
 
-= How do i change background images of raids? =
+= How do I change background images of raids? =
 
 You can either replace image of raid in `/images/raids/` folder, or you can upload your own and change filename in raids.json.
+
+= I can't see new raids? =
+
+You can enable which raids are shown in widget in Settings > WoW Progress. If you can't see your raid there, it probably isn't supported or plugin wasn't updated yet. Please let me know if any new raids are missing.
 
 == Screenshots ==
 
@@ -46,8 +50,12 @@ You can either replace image of raid in `/images/raids/` folder, or you can uplo
 
 == Changelog ==
 
+= 1.5.1 =
+* updated for WordPress 4.5
+* added "Configure" link to plugin list page
+
 = 1.5.0 =
-* Added Hellfire Citadel raid (patch 6.2.0)
+* added Hellfire Citadel raid (patch 6.2.0)
 
 = 1.4.1 =
 * fixed problem with url file access
@@ -58,7 +66,7 @@ You can either replace image of raid in `/images/raids/` folder, or you can uplo
 
 = 1.3.0 =
 * added global setting to disable raids. You might have to go to settings and enable only raids you want.
-* added option to input boss kill video.
+* added option to input boss kill video
 
 = 1.2.1 =
 * fixed names of bosses in Siege of Orgrimmar
