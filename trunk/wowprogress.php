@@ -210,7 +210,7 @@ class wowprogress_widget extends WP_Widget {
 		echo '<thead><tr><th colspan="4"></th></tr></thead>';
 
 		echo '<tbody>';
-		echo $this->form_text_input("title", __("Title", "wowprogress"), esc_attr($instance['title']));
+		echo $this->form_text_input("title", __("Title:"), esc_attr($instance['title']));
 		echo $this->form_text_input("guild", __("Guild", "wowprogress"), esc_attr($instance['guild']), __("Name of your guild.\nThis will be used in achievement link.", "wowprogress"));
 		echo '<tr><td colspan="4"><hr /></td></tr>';
 		echo '</tbody>';
