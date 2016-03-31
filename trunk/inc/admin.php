@@ -1,5 +1,12 @@
 <?php
 
+function wowprogress_action_links( $links ) {
+	$links[] = '<a href="'. esc_url( get_admin_url(null, 'options-general.php?page='.WOWPROGRESS_PLUGIN_SLUG) ) .'">'.__("Configure").'</a>';
+	return $links;
+}
+// plugin_action_links_wow-progress/wowprogress.php
+add_filter( 'plugin_action_links_'.WOWPROGRESS_PLUGIN_FILE, 'wowprogress_action_links' );
+
 function wowprogress_admin_init(){
 	register_setting( WOWPROGRESS_PLUGIN_SLUG.'_plugin_options', WOWPROGRESS_PLUGIN_SLUG.'_options', 'wowprogress_validate_options' );
 }
@@ -7,7 +14,7 @@ add_action('admin_init', 'wowprogress_admin_init' );
 
 
 function wowprogress_add_options_page() {
-	add_options_page(WOWPROGRESS_PLUGIN_NAME . " " . __('Settings', 'wowprogress'), WOWPROGRESS_PLUGIN_NAME, 'manage_options', __FILE__, 'wowprogress_render_form');
+	add_options_page(WOWPROGRESS_PLUGIN_NAME . " " . __('Settings', 'wowprogress'), WOWPROGRESS_PLUGIN_NAME, 'manage_options', WOWPROGRESS_PLUGIN_SLUG, 'wowprogress_render_form');
 }
 add_action('admin_menu', 'wowprogress_add_options_page');
 

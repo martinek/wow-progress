@@ -25,6 +25,7 @@
  */
 define( 'WOWPROGRESS_VERSION', '1.4.1' );
 if ( ! defined( 'WOWPROGRESS_PLUGIN_SLUG' ) )	define( 'WOWPROGRESS_PLUGIN_SLUG',	'wowprogress');
+if ( ! defined( 'WOWPROGRESS_PLUGIN_FILE' ) )	define( 'WOWPROGRESS_PLUGIN_FILE',	plugin_basename(__FILE__));
 if ( ! defined( 'WOWPROGRESS_PLUGIN_NAME' ) )	define( 'WOWPROGRESS_PLUGIN_NAME',	'WoW Progress');
 if ( ! defined( 'WOWPROGRESS_PLUGIN_DIR' ) )	define( 'WOWPROGRESS_PLUGIN_DIR',	WP_PLUGIN_DIR . '/' . plugin_basename( dirname( __FILE__ ) ) );
 if ( ! defined( 'WOWPROGRESS_PLUGIN_URL' ) )	define( 'WOWPROGRESS_PLUGIN_URL',	WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) );
