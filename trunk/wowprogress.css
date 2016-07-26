@@ -1,3 +1,11 @@
+/* Admin */
+
+.settings_page_wowprogress .form-table img {
+    max-width: 200px;
+}
+
+/* Widget */
+
 #wowprogress ul {
 	margin-left: 0px !important;
 	list-style: none;

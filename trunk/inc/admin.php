@@ -60,7 +60,15 @@ function wowprogress_render_form() {
                 <tr valign="top">
                     <th scope="row"><?php _e('Enabled Raids', 'wowprogress') ?></th>
                     <td>
-                        <?php foreach($availableRaids as $raid){ ?>
+						<?php $exp = ''; ?>
+                        <?php
+                            foreach($availableRaids as $raid){
+                                if($exp != $raid['exp']){
+                                    $exp = $raid['exp'];
+                                    echo "<img src=" . sprintf(WOWPROGRESS_EXPANSIONS, $exp) . "><br />";
+                                }
+                                ?>
+
                             <input type="checkbox" name="wowprogress_options[show_raid][<?php echo $raid['tag'];?>]" value="1" <?php if (isset($options['show_raid'][$raid['tag']])) { checked('1', $options['show_raid'][$raid['tag']]); } ?>/>
                             <?php echo $raid['name']?><br />
                         <?php } ?>
