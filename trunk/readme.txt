@@ -3,7 +3,7 @@ Contributors: martinek
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss
 Requires at least: 3.0
 Tested up to: 4.5.0
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ A widget that helps to display guild raid progress.
 == Description ==
 
 A widget that helps to display guild raid progress.
-Each boss have separate option to toggle kill, heroic kill and mythic kill. Contains raids from Tier 11 up to Tier 18 (patch 6.2.0). Each raid can be toggled to be displayed and if shown or collapsed.
+Each boss have separate option to toggle kill, heroic kill and mythic kill. Contains all raids up to Tier 18 (patch 6.2.0). Each raid can be toggled to be displayed and if shown or collapsed.
 
 There is theme support with sample Light and Dark theme. Also my own theme is attached if you are interested. You should create your own theme and customise it to match your needs. 
 
@@ -31,7 +31,7 @@ If you managed to find bugs or want to correct some of my codes, please don't he
 
 = How do I change the look of plugin? =
 
-You can create new plugin theme by creating new <theme>.css file in `/wp-content/plugins/wowprogress/themes/` folder. Then select this theme from Settings > WoW Progress.
+You can create new plugin theme by creating new <theme>.css file in `/wp-content/plugins/wowprogress/themes/` folder. Then select this theme from Settings > WoW Progress. Backup your theme when updating plugin.
 
 = How do I change background images of raids? =
 
@@ -49,6 +49,11 @@ You can enable which raids are shown in widget in Settings > WoW Progress. If yo
 4. Administration
 
 == Changelog ==
+
+= 1.5.2 =
+* added Old raids (vanilla, tbc, wotlk)
+* added World Bosses
+* updated existing background images with higher resolution versions
 
 = 1.5.1 =
 * updated for WordPress 4.5
