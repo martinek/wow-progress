@@ -67,10 +67,12 @@ function wowprogress_render_form() {
                                     $exp = $raid['exp'];
                                     echo "<img src=" . sprintf(WOWPROGRESS_EXPANSIONS, $exp) . "><br />";
                                 }
+
+                                $input_name = "wowprogress_options[show_raid][".$raid['tag']."]";
                                 ?>
 
-                            <input type="checkbox" name="wowprogress_options[show_raid][<?php echo $raid['tag'];?>]" value="1" <?php if (isset($options['show_raid'][$raid['tag']])) { checked('1', $options['show_raid'][$raid['tag']]); } ?>/>
-                            <?php echo $raid['name']?><br />
+                            <input type="checkbox" name="<?php echo $input_name;?>" id="<?php echo $input_name;?>" value="1" <?php if (isset($options['show_raid'][$raid['tag']])) { checked('1', $options['show_raid'][$raid['tag']]); } ?>/>
+                            <label for="<?php echo $input_name;?>"><?php echo $raid['name']?></label><br />
                         <?php } ?>
                     </td>
                 </tr>
