@@ -113,7 +113,7 @@ class wowprogress_widget extends WP_Widget {
 			echo TAB.TAB.TAB.TAB.'<div class="raid_head'.($complete_myth ? " myth" : ($complete_hc ? " hc" : "")).'">';
 
 			if($raid['achievement'] && $complete && $instance["guild"] != "" && $instance[$raid['tag']."_time"] != "")
-				printf(WOWPROGRESS_ACHI, $raid['achievement'], $instance["guild"], $instance[$raid['tag']."_time"], $raid['name']);
+				printf(WOWPROGRESS_ACHI, $raid['achievement'], rawurlencode($instance["guild"]), $instance[$raid['tag']."_time"], $raid['name']);
 			else
 				echo $raid['name'];
 
