@@ -57,6 +57,26 @@
         "tag" : "hm"
     },
     {
+        "achievement": false,
+        "background": "wb_wod",
+        "bosses": [
+            "Drov the Ruiner",
+            "Tarlna the Ageless",
+            "Rukhmar",
+            "Supreme Lord Kazzak"
+        ],
+        "exp": "warlords_of_draenor",
+        "name": "World Bosses",
+        "tag": "wb_wod"
+    },
+
+
+
+
+
+
+
+    {
         "achievement" : 8510,
         "background" : "soo",
         "bosses" : [
@@ -144,6 +164,28 @@
 		"name" : "Terrace of Endless Spring",
 		"tag" : "tes"
 	},
+    {
+        "achievement": false,
+        "background": "wb_mop",
+        "bosses": [
+            "Sha of Anger",
+            "Galleon",
+            "Oondasta",
+            "Nalak",
+            "August Celestials",
+            "Ordos"
+        ],
+        "exp": "mists_of_pandaria",
+        "name": "World Bosses",
+        "tag": "wb_mop"
+    },
+
+
+
+
+
+
+
 	{
 		"achievement" : 6123,
 		"background" : "ds",
@@ -229,6 +271,8 @@
 		"name" : "Throne of the Four Winds",
 		"tag" : "tofw"
 	},
+
+
 
 
     {
@@ -374,6 +418,8 @@
     },
 
 
+
+
     {
         "achievement" : false,
         "background" : "swp",
@@ -488,6 +534,17 @@
         "exp" : "the_burning_crusade",
         "name" : "Karazhan",
         "tag" : "kara"
+    },
+    {
+        "achievement": false,
+        "background": "wb_tbc",
+        "bosses": [
+            "Doom Lord Kazzak",
+            "Doomwalker"
+        ],
+        "exp": "the_burning_crusade",
+        "name": "World Bosses",
+        "tag": "wb_tbc"
     },
 
 
@@ -620,5 +677,21 @@
         "exp": "vanilla",
         "name": "Zul'Gurub",
         "tag": "zg"
+    },
+    {
+        "achievement": false,
+        "background": "wb_vanilla",
+        "bosses": [
+            "Omen",
+            "Azuregos",
+            "Lord Kazzak",
+            "Emeriss",
+            "Lethon",
+            "Taerar",
+            "Ysondre"
+        ],
+        "exp": "vanilla",
+        "name": "World Bosses",
+        "tag": "wb_vanilla"
     }
 ]
