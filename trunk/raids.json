@@ -488,5 +488,137 @@
         "exp" : "the_burning_crusade",
         "name" : "Karazhan",
         "tag" : "kara"
+    },
+
+
+
+
+    {
+        "achievement": false,
+        "background": "naxx",
+        "bosses": [
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Sapphiron",
+            "Kel'Thuzad"
+        ],
+        "exp": "vanilla",
+        "name": "Naxxramas",
+        "tag": "naxx"
+    },
+    {
+        "achievement": false,
+        "background": "aq40",
+        "bosses": [
+            "The Prophet Skeram",
+            "Lord Kri",
+            "Princess Yauj",
+            "Vem",
+            "Battleguard Sartura",
+            "Fankriss the Unyielding",
+            "Viscidus",
+            "Princess Huhuran",
+            "Emperor Vek'lor",
+            "Emperor Vek'nilash",
+            "Ouro",
+            "C'Thun"
+        ],
+        "exp": "vanilla",
+        "name": "Temple of Ahn'Qiraj",
+        "tag": "aq40"
+    },
+    {
+        "achievement": false,
+        "background": "aq20",
+        "bosses": [
+            "Kurinnaxx",
+            "General Rajaxx",
+            "Moam",
+            "Buru the Gorger",
+            "Ayamiss the Hunter",
+            "Ossirian the Unscarred"
+        ],
+        "exp": "vanilla",
+        "name": "Ruins of Ahn'Qiraj",
+        "tag": "aq20"
+    },
+    {
+        "achievement": false,
+        "background": "bwl",
+        "bosses": [
+            "Razorgore the Untamed",
+            "Vaelastrasz the Corrupt",
+            "Broodlord Lashlayer",
+            "Flamegor",
+            "Ebonroc",
+            "Firemaw",
+            "Chromaggus",
+            "Nefarian"
+        ],
+        "exp": "vanilla",
+        "name": "Blackwing Lair",
+        "tag": "bwl"
+    },
+    {
+        "achievement": false,
+        "background": "mc",
+        "bosses": [
+            "Lucifron",
+            "Magmadar",
+            "Gehennas",
+            "Garr",
+            "Baron Geddon",
+            "Shazzrah",
+            "Golemagg the Incinerator",
+            "Sulfuron Harbinger",
+            "Majordomo Executus",
+            "Ragnaros"
+        ],
+        "exp": "vanilla",
+        "name": "Molten Core",
+        "tag": "mc"
+    },
+    {
+        "achievement": false,
+        "background": "onyx",
+        "bosses": [
+            "Onyxia"
+        ],
+        "exp": "vanilla",
+        "name": "Onyxia",
+        "tag": "onyx"
+    },
+    {
+        "achievement": false,
+        "background": "zg",
+        "bosses": [
+            "High Priestess Jeklik",
+            "High Priest Venoxis",
+            "High Priestess Mar'li",
+            "High Priest Thekal",
+            "High Priestess Arlokk",
+            "Bloodlord Mandokir",
+            "Jin'do the Hexxer",
+            "Gahz'ranka",
+            "Gri'lek",
+            "Hazza'rah",
+            "Renataki",
+            "Wushoolay",
+            "Hakkar the Soulflayer"
+        ],
+        "exp": "vanilla",
+        "name": "Zul'Gurub",
+        "tag": "zg"
     }
 ]
