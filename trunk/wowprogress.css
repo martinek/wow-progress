@@ -28,6 +28,7 @@
 
 #wowprogress .raid {
 	background-position: top center;
+    background-size: cover;
 	margin-bottom: 8px;
 }
 

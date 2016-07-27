@@ -228,5 +228,148 @@
 		"exp" : "cataclysm",
 		"name" : "Throne of the Four Winds",
 		"tag" : "tofw"
-	}
+	},
+
+
+    {
+        "achievement" : false,
+        "background" : "rs",
+        "bosses" : [
+            "Saviana Ragefire",
+            "Baltharus the Warborn",
+            "General Zarithrian",
+            "Halion"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "The Ruby Sanctum",
+        "tag" : "rs"
+    },
+    {
+        "achievement" : false,
+        "background" : "icc",
+        "bosses" : [
+            "Lord Marrowgar",
+            "Lady Deathwhisper",
+            "Icecrown Gunship Battle",
+            "Deathbringer Saurfang",
+            "Festergut",
+            "Rotface",
+            "Professor Putricide",
+            "Blood Prince Council",
+            "Blood-Queen Lana'thel",
+            "Valithria Dreamwalker",
+            "Sindragosa",
+            "The Lich King"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "Icecrown Citadel",
+        "tag" : "icc"
+    },
+    {
+        "achievement" : false,
+        "background" : "onyx",
+        "bosses" : [
+            "Onyxia"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "Onyxia's Lair",
+        "tag" : "onyx_wotlk"
+    },
+    {
+        "achievement" : false,
+        "background" : "totc",
+        "bosses" : [
+            "Northrend Beasts",
+            "Lord Jaraxxus",
+            "Faction Champions",
+            "Val'kyr Twins",
+            "Anub'arak"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "Trial of the Crusader",
+        "tag" : "totc"
+    },
+    {
+        "achievement" : false,
+        "background" : "uld",
+        "bosses" : [
+            "Flame Leviathan",
+            "Ignis the Furnace Master",
+            "Razorscale",
+            "XT-002 Deconstructor",
+            "Assembly of Iron",
+            "Kologarn",
+            "Auriaya",
+            "Mimiron",
+            "Freya",
+            "Thorim",
+            "Hodir",
+            "General Vezax",
+            "Yogg-Saron",
+            "Algalon the Observer"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "Ulduar",
+        "tag" : "uld"
+    },
+    {
+        "achievement" : false,
+        "background" : "os",
+        "bosses" : [
+            "Shadron",
+            "Tenebron",
+            "Vesperon",
+            "Sartharion"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "The Obsidian Sanctum",
+        "tag" : "os"
+    },
+    {
+        "achievement" : false,
+        "background" : "voa",
+        "bosses" : [
+            "Archavon the Stone Watcher",
+            "Emalon the Storm Watcher",
+            "Koralon the Flame Watcher",
+            "Toravon the Ice Watcher"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "Vault of Archavon",
+        "tag" : "voa"
+    },
+    {
+        "achievement" : false,
+        "background" : "eoe",
+        "bosses" : [
+            "Malygos"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "The Eye of Eternity",
+        "tag" : "eoe"
+    },
+    {
+        "achievement" : false,
+        "background" : "naxx",
+        "bosses" : [
+            "Anub'Rekhan",
+            "Grand Widow Faerlina",
+            "Maexxna",
+            "Patchwerk",
+            "Grobbulus",
+            "Gluth",
+            "Thaddius",
+            "Noth the Plaguebringer",
+            "Heigan the Unclean",
+            "Loatheb",
+            "Instructor Razuvious",
+            "Gothik the Harvester",
+            "The Four Horsemen",
+            "Sapphiron",
+            "Kel'Thuzad"
+        ],
+        "exp" : "wrath_of_the_lich_king",
+        "name" : "Naxxramas",
+        "tag" : "naxx_wotlk"
+    }
 ]
