@@ -371,5 +371,122 @@
         "exp" : "wrath_of_the_lich_king",
         "name" : "Naxxramas",
         "tag" : "naxx_wotlk"
+    },
+
+
+    {
+        "achievement" : false,
+        "background" : "swp",
+        "bosses" : [
+            "Kalecgos",
+            "Brutallus",
+            "Felmyst",
+            "Eredar Twins",
+            "M'uru",
+            "Kil'jaeden"
+        ],
+        "exp" : "the_burning_crusade",
+        "name" : "Sunwell Plateau",
+        "tag" : "swp"
+    },
+    {
+        "achievement" : false,
+        "background" : "bt",
+        "bosses" : [
+            "High Warlord Naj'entus",
+            "Supremus",
+            "Shade of Akama",
+            "Teron Gorefiend",
+            "Gurtogg Bloodboil",
+            "Reliquary of Souls",
+            "Mother Shahraz",
+            "Illidari Council",
+            "Illidan Stormrage"
+        ],
+        "exp" : "the_burning_crusade",
+        "name" : "Black Temple",
+        "tag" : "bt"
+    },
+    {
+        "achievement" : false,
+        "background" : "mh",
+        "bosses" : [
+            "Rage Winterchill",
+            "Anetheron",
+            "Kaz'rogal",
+            "Azgalor",
+            "Archimonde"
+        ],
+        "exp" : "the_burning_crusade",
+        "name" : "Battle for Mount Hyjal",
+        "tag" : "mh"
+    },
+    {
+        "achievement" : false,
+        "background" : "tk",
+        "bosses" : [
+            "Al'ar",
+            "Void Reaver",
+            "High Astromancer Solarian",
+            "Kael'thas Sunstrider"
+        ],
+        "exp" : "the_burning_crusade",
+        "name" : "The Eye",
+        "tag" : "tk"
+    },
+    {
+        "achievement" : false,
+        "background" : "ssc",
+        "bosses" : [
+            "Hydross the Unstable",
+            "The Lurker Below",
+            "Leotheras the Blind",
+            "Fathom-Lord Karathress",
+            "Morogrim Tidewalker",
+            "Lady Vashj"
+        ],
+        "exp" : "the_burning_crusade",
+        "name" : "Serpentshrine Cavern",
+        "tag" : "ssc"
+    },
+    {
+        "achievement" : false,
+        "background" : "mag",
+        "bosses" : [
+            "Magtheridon"
+        ],
+        "exp" : "the_burning_crusade",
+        "name" : "Magtheridon's Lair",
+        "tag" : "mag"
+    },
+    {
+        "achievement" : false,
+        "background" : "grull",
+        "bosses" : [
+            "High King Maulgar",
+            "Gruul the Dragonkiller"
+        ],
+        "exp" : "the_burning_crusade",
+        "name" : "Gruul's Lair",
+        "tag" : "grull"
+    },
+    {
+        "achievement" : false,
+        "background" : "kara",
+        "bosses" : [
+            "Attumen the Huntsman",
+            "Moroes",
+            "Maiden of Virtue",
+            "Opera Hall",
+            "The Curator",
+            "Terestian Illhoof",
+            "Shade of Aran",
+            "Netherspite",
+            "Chess Event",
+            "Prince Malchezaar"
+        ],
+        "exp" : "the_burning_crusade",
+        "name" : "Karazhan",
+        "tag" : "kara"
     }
 ]
