@@ -1,5 +1,43 @@
 [
     {
+        "achievement" : 10868,
+        "background" : "nh",
+        "bosses" : [
+            "Skorpyron",
+            "Chronomatic Anomaly",
+            "Trilliax",
+            "Krosus",
+            "Star Augur Etraeus",
+            "Spellblade Aluriel",
+            "High Botanist Tel'arn",
+            "Tichondrius",
+            "Grand Magistrix Elisande",
+            "Gul'dan"
+        ],
+        "exp" : "legion",
+        "name" : "Nighthold",
+        "tag" : "nh"
+    },
+    {
+        "achievement" : 10866,
+        "background" : "en",
+        "bosses" : [
+            "Nythendra",
+            "Il'gynoth, Heart of Corruption",
+            "Elerethe Renferal",
+            "Ursoc",
+            "Dragons of Nightmare",
+            "Cenarius",
+            "Xavius"
+        ],
+        "exp" : "legion",
+        "name" : "Emerald Nightmare",
+        "tag" : "en"
+    },
+
+
+
+    {
         "achievement" : false,
         "background" : "hfc",
         "bosses" : [
