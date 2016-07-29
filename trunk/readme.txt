@@ -2,8 +2,8 @@
 Contributors: martinek
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss
 Requires at least: 3.0
-Tested up to: 4.5.0
-Stable tag: 1.5.2
+Tested up to: 4.6.0
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ A widget that helps to display guild raid progress.
 == Description ==
 
 A widget that helps to display guild raid progress.
-Each boss have separate option to toggle kill, heroic kill and mythic kill. Contains all raids up to Tier 18 (patch 6.2.0). Each raid can be toggled to be displayed and if shown or collapsed.
+Each boss have separate option to toggle kill, heroic kill and mythic kill. Contains all raids up to Tier 19 (first Legion tier). Each raid can be toggled to be displayed and if shown or collapsed.
 
 There is theme support with sample Light and Dark theme. Also my own theme is attached if you are interested. You should create your own theme and customise it to match your needs. 
 
@@ -49,6 +49,11 @@ You can enable which raids are shown in widget in Settings > WoW Progress. If yo
 4. Administration
 
 == Changelog ==
+
+= 1.6.0 =
+* added Emerald Nightmare raid
+* added Nighthold raid
+* fixed Karazhan bosses (added Nightbane)
 
 = 1.5.2 =
 * added Old raids (vanilla, tbc, wotlk)
