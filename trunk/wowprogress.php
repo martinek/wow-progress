@@ -103,6 +103,7 @@ class wowprogress_widget extends WP_Widget {
 		$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
         $EXP_URL = $this->exp_base_url();
         $RAID_URL = $this->raid_base_url();
+        $PROGRESS_IN_TITLE = (array_key_exists('show_progress_in_raid_title', $options) && $options['show_progress_in_raid_title']);
 
 		echo $before_widget;
 		if ( !empty( $instance['title'] ) )
@@ -138,20 +139,36 @@ class wowprogress_widget extends WP_Widget {
 			echo TAB.TAB.'<li class="raid"'.($options['show_backgrounds'] ? 'style="background-image: url(\'' . sprintf($RAID_URL, $raid['background']) . '\');"' : '') .'>'.NL;
 
 			// Check if raid is complete
+            $progress_count = array(
+                "normal" => 0,
+                "hc" => 0,
+                "myth" => 0
+            );
 			$complete = true;
 			$complete_hc = true;
             $complete_myth = true;
 			foreach($raid['bosses'] as $bossid => $boss){
-				$complete &= $instance[$raid['tag']."_".$bossid] == "on";
-				$complete_hc &= $instance[$raid['tag']."_".$bossid."_hc"] == "on";
-                $complete_myth &= $instance[$raid['tag']."_".$bossid."_myth"] == "on";
+                if($instance[$raid['tag']."_".$bossid] == "on") $progress_count["normal"]++;
+                else $complete = false;
+
+                if($instance[$raid['tag']."_".$bossid."_hc"] == "on") $progress_count["hc"]++;
+                else $complete_hc  = false;
+
+                if($instance[$raid['tag']."_".$bossid."_myth"] == "on") $progress_count["myth"]++;
+                else $complete_myth = false;
 			}
+            $progress = $progress_count["normal"];
+            if($progress_count["hc"] > 0) $progress = $progress_count["hc"];
+            if($progress_count["myth"] > 0) $progress = $progress_count["myth"];
 
 			// Background overlay for background image lightness correction
 			echo TAB.TAB.TAB.'<div class="raid_film">'.NL;
 			
 			// Start raid header
-			echo TAB.TAB.TAB.TAB.'<div class="raid_head'.($complete_myth ? " myth" : ($complete_hc ? " hc" : "")).'">';
+			echo TAB.TAB.TAB.TAB.'<div class="raid_head'.($PROGRESS_IN_TITLE ? '' : ($complete_myth ? " myth" : ($complete_hc ? " hc" : ""))).'">';
+
+            if($PROGRESS_IN_TITLE)
+                echo '<span class="raid_progress">'.$progress.'/'.count($raid['bosses']).'</span>';
 
 			if(array_key_exists('achievement', $raid) && $complete && $instance["guild"] != "" && $instance[$raid['tag']."_time"] != "")
 				printf(WOWPROGRESS_ACHI, $raid['achievement'], rawurlencode($instance["guild"]), $instance[$raid['tag']."_time"], $raid['name']);
@@ -382,6 +399,7 @@ if (!function_exists('wowprogress_widget_install')) {
 			$arr = array(
 				"show_backgrounds" => "1",
 				"theme" => "light.css",
+                "show_progress_in_raid_title" => false,
                 "show_raid" => array(
                     "soo" => "1",
                     "tot" => "1"

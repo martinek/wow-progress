@@ -56,7 +56,14 @@ function wowprogress_render_form() {
 					</td>
 				</tr>
 
-                <?php
+				<tr valign="top">
+					<th scope="row"><?php _e('Show Progress in Raid Title', 'wowprogress') ?></th>
+					<td>
+						<input name="wowprogress_options[show_progress_in_raid_title]" type="checkbox" value="1" <?php if (isset($options['show_progress_in_raid_title'])) { checked('1', $options['show_progress_in_raid_title']); } ?> />
+					</td>
+				</tr>
+
+				<?php
                     $availableRaids = wowprogress_widget::load_raids_file();
                 ?>
                 <tr valign="top">

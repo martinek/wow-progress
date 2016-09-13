@@ -43,7 +43,8 @@
 	font-weight: bold;
 }
 
-#wowprogress .raid_head a{
+#wowprogress .raid_head .raid_progress{
+    float: right;
 }
 
 #wowprogress .raid ul {
