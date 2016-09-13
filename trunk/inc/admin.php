@@ -55,7 +55,7 @@ function wowprogress_render_form() {
 				</tr>
 
                 <?php
-                    $availableRaids = wowprogress_widget::load_raids_file(WOWPROGRESS_RAIDS_FILE);
+                    $availableRaids = wowprogress_widget::load_raids_file();
                 ?>
                 <tr valign="top">
                     <th scope="row"><?php _e('Enabled Raids', 'wowprogress') ?></th>

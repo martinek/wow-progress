@@ -33,6 +33,7 @@ if ( ! defined( 'WOWPROGRESS_PLUGIN_URL' ) )	define( 'WOWPROGRESS_PLUGIN_URL',	W
 if ( ! defined( 'WOWPROGRESS_THEMES_FOLDER' ) )	define( 'WOWPROGRESS_THEMES_FOLDER','themes' );
 
 if ( ! defined( 'WOWPROGRESS_RAIDS_FILE' ) )	define( 'WOWPROGRESS_RAIDS_FILE',	WOWPROGRESS_PLUGIN_DIR.'/raids.json' );
+if ( ! defined( 'THEME_RAIDS_FILE' ) )	        define( 'THEME_RAIDS_FILE',	        get_template_directory().'/wow-progress/raids.json' );
 if ( ! defined( 'WOWPROGRESS_EXPANSIONS' ) )	define( 'WOWPROGRESS_EXPANSIONS',	WOWPROGRESS_PLUGIN_URL.'/images/exp/%s.png' );
 if ( ! defined( 'WOWPROGRESS_RAIDS' ) )			define( 'WOWPROGRESS_RAIDS',		WOWPROGRESS_PLUGIN_URL.'/images/raids/%s.png' );
 if ( ! defined( 'WOWPROGRESS_HC_ICON' ) )		define( 'WOWPROGRESS_HC_ICON',		WOWPROGRESS_PLUGIN_URL.'/images/heroic_icon.png' );
@@ -60,7 +61,7 @@ class wowprogress_widget extends WP_Widget {
 
 		$widget_ops = array('classname' => WOWPROGRESS_PLUGIN_SLUG, 'description' => 'WoW Progress Widget' );
 		parent::__construct(false, $name = 'WoW Progress', $widget_ops);
-		$this->WoWraids = $this->load_raids_file(WOWPROGRESS_RAIDS_FILE);
+		$this->WoWraids = $this->load_raids_file();
 	}
 
 	function register_plugin_scripts() {
@@ -320,8 +321,11 @@ class wowprogress_widget extends WP_Widget {
         return $res;
 	}
 
-	static function load_raids_file($path){
-		return json_decode(file_get_contents($path), true);
+	static function load_raids_file(){
+        if(file_exists(THEME_RAIDS_FILE))
+		    return json_decode(file_get_contents(THEME_RAIDS_FILE), true);
+        else
+            return json_decode(file_get_contents(WOWPROGRESS_RAIDS_FILE), true);
 	}
 
 }
