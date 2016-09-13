@@ -31,6 +31,8 @@ if ( ! defined( 'WOWPROGRESS_PLUGIN_DIR' ) )	define( 'WOWPROGRESS_PLUGIN_DIR',	W
 if ( ! defined( 'WOWPROGRESS_PLUGIN_URL' ) )	define( 'WOWPROGRESS_PLUGIN_URL',	WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) );
 
 if ( ! defined( 'WOWPROGRESS_THEMES_FOLDER' ) )	define( 'WOWPROGRESS_THEMES_FOLDER','themes' );
+if ( ! defined( 'THEME_THEMES_FOLDER' ) )	    define( 'THEME_THEMES_FOLDER',      get_template_directory().'/wow-progress/themes' );
+if ( ! defined( 'THEME_THEMES_URL' ) )	        define( 'THEME_THEMES_URL',         get_template_directory_uri().'/wow-progress/themes' );
 
 if ( ! defined( 'WOWPROGRESS_RAIDS_FILE' ) )	define( 'WOWPROGRESS_RAIDS_FILE',	WOWPROGRESS_PLUGIN_DIR.'/raids.json' );
 if ( ! defined( 'THEME_RAIDS_FILE' ) )	        define( 'THEME_RAIDS_FILE',	        get_template_directory().'/wow-progress/raids.json' );
@@ -338,7 +340,7 @@ function wow_progress_themes(){
         $themes['p_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
     }
 
-    $theme_files = glob(get_template_directory() . '/wow-progress/' . WOWPROGRESS_THEMES_FOLDER . "/*.css");
+    $theme_files = glob(THEME_THEMES_FOLDER . "/*.css");
     foreach($theme_files as $filepath) {
         $themes['t_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
     }
@@ -351,7 +353,7 @@ function theme_file_url($key) {
         't_',
         'p_'
     ), array(
-        get_template_directory_uri().'/wow-progress/themes/',
+        THEME_THEMES_FOLDER.'/',
         WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_THEMES_FOLDER.'/'
     ), $key);
 }
