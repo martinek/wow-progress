@@ -20,6 +20,8 @@ add_action('admin_menu', 'wowprogress_add_options_page');
 
 
 function wowprogress_render_form() {
+	$EXP_URL = wowprogress_widget::exp_base_url();
+
 	?>
 	<div class="wrap">
 		
@@ -65,7 +67,7 @@ function wowprogress_render_form() {
                             foreach($availableRaids as $raid){
                                 if($exp != $raid['exp']){
                                     $exp = $raid['exp'];
-                                    echo "<img src=" . sprintf(WOWPROGRESS_EXPANSIONS, $exp) . "><br />";
+                                    echo "<img src=" . sprintf($EXP_URL, $exp) . "><br />";
                                 }
 
                                 $input_name = "wowprogress_options[show_raid][".$raid['tag']."]";

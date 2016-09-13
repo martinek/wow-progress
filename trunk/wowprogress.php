@@ -84,9 +84,25 @@ class wowprogress_widget extends WP_Widget {
 		wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG.'_theme');
 	}
 
-	function widget($args, $instance){
+    static function raid_base_url(){
+        if(file_exists(THEME_RAIDS_FILE))
+            return get_template_directory_uri() . '/wow-progress/images/raids/%s.png';
+        else
+            return WOWPROGRESS_RAIDS;
+    }
+
+    static function exp_base_url(){
+        if(file_exists(THEME_RAIDS_FILE))
+            return get_template_directory_uri() . '/wow-progress/images/exp/%s.png';
+        else
+            return WOWPROGRESS_EXPANSIONS;
+    }
+
+    function widget($args, $instance){
 		extract($args, EXTR_SKIP);
 		$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
+        $EXP_URL = $this->exp_base_url();
+        $RAID_URL = $this->raid_base_url();
 
 		echo $before_widget;
 		if ( !empty( $instance['title'] ) )
@@ -112,14 +128,14 @@ class wowprogress_widget extends WP_Widget {
 				$exp = $raid['exp'];
 
 				// Output header
-				echo TAB.'<div class="expansion_head"><img src="' . sprintf(WOWPROGRESS_EXPANSIONS, $exp) . '" /></div>'.NL;
+				echo TAB.'<div class="expansion_head"><img src="' . sprintf($EXP_URL, $exp) . '" /></div>'.NL;
 
 				// Start raids list
 				echo TAB.'<ul class="expansion">'.NL;
 			}
 
 			// Start raid
-			echo TAB.TAB.'<li class="raid"'.($options['show_backgrounds'] ? 'style="background-image: url(\'' . sprintf(WOWPROGRESS_RAIDS, $raid['background']) . '\');"' : '') .'>'.NL;
+			echo TAB.TAB.'<li class="raid"'.($options['show_backgrounds'] ? 'style="background-image: url(\'' . sprintf($RAID_URL, $raid['background']) . '\');"' : '') .'>'.NL;
 
 			// Check if raid is complete
 			$complete = true;
