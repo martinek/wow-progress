@@ -272,7 +272,7 @@ class wowprogress_widget extends WP_Widget {
 			foreach ($raid['bosses'] as $boss_id => $boss_name)
 				echo $this->form_boss($raid['tag']."_".$boss_id, $boss_name, $instance);
 
-            if($raid['achievement']) {
+            if(array_key_exists("achievement", $raid)) {
                 echo $this->form_text_input($raid['tag']."_time", __("Time", "wowprogress"), $instance[$raid['tag']."_time"], __("Time when guild achieved guild run achievement.\nShould be in unix micro time (ei. 1304035200000).", "wowprogress"));
             }
 
