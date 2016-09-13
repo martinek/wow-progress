@@ -6,16 +6,11 @@
 	background: linear-gradient(to right,       rgba(255,255,255,0.8), rgba(255,255,255,0.1)); /* Standard syntax */
 }
 
-#wowprogress .raid_head {
-	color: #222222;
-}
-
-#wowprogress .raid_head a{
-	color: #222222;
-}
-
-#wowprogress li {
-	color: #222222;
+#wowprogress,
+#wowprogress .raid_head,
+#wowprogress .raid_head a {
+    color: #222222;
+    text-shadow: white 0 0 2px;
 }
 
 #wowprogress .down {
