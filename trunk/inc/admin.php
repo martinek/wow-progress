@@ -40,9 +40,9 @@ function wowprogress_render_form() {
 					<th scope="row"><?php _e('Theme', 'wowprogress') ?></th>
 					<td>
 						<select name='wowprogress_options[theme]'>
-							<?php foreach(wow_progress_themes() as $theme){
-							echo "<option value='$theme' " . selected($theme, $options['theme']) . ">$theme</option>";
-							}?>
+							<?php foreach(wow_progress_themes() as $key => $theme){ ?>
+								<option value='<?php echo $key; ?>' <?php selected($options['theme'], $key); ?>><?php echo $theme; ?></option>
+							<?php } ?>
 						</select>
 					</td>
 				</tr>

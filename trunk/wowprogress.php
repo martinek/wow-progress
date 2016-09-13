@@ -77,7 +77,7 @@ class wowprogress_widget extends WP_Widget {
 		wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG);
 
 		$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
-        wp_register_style(WOWPROGRESS_PLUGIN_SLUG.'_theme', WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_THEMES_FOLDER.'/'.$options['theme']);
+        wp_register_style(WOWPROGRESS_PLUGIN_SLUG.'_theme', theme_file_url($options['theme']));
 		wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG.'_theme');
 	}
 
@@ -327,12 +327,30 @@ class wowprogress_widget extends WP_Widget {
 }
 
 function wow_progress_themes(){
-	$themes = array();
-	$files = glob(WOWPROGRESS_PLUGIN_DIR . '/' . WOWPROGRESS_THEMES_FOLDER . "/*.css");
-	$themes = array_map('basename', $files);
-	return $themes;
+    $themes = array();
+
+    $files = glob(WOWPROGRESS_PLUGIN_DIR . '/' . WOWPROGRESS_THEMES_FOLDER . "/*.css");
+    foreach($files as $filepath) {
+        $themes['p_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
+    }
+
+    $theme_files = glob(get_template_directory() . '/wow-progress/' . WOWPROGRESS_THEMES_FOLDER . "/*.css");
+    foreach($theme_files as $filepath) {
+        $themes['t_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
+    }
+
+    return $themes;
 }
 
+function theme_file_url($key) {
+    return str_replace(array(
+        't_',
+        'p_'
+    ), array(
+        get_template_directory_uri().'/wow-progress/themes/',
+        WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_THEMES_FOLDER.'/'
+    ), $key);
+}
 
 if (!function_exists('wowprogress_widget_install')) {
     function wowprogress_widget_install() {
