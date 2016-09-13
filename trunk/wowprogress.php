@@ -320,7 +320,7 @@ class wowprogress_widget extends WP_Widget {
         return $res;
 	}
 
-	function load_raids_file($path){
+	static function load_raids_file($path){
 		return json_decode(file_get_contents($path), true);
 	}
 
