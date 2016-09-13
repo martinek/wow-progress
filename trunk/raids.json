@@ -102,5 +102,168 @@
         "exp" : "heavens_ward",
         "name" : "The Void Ark",
         "tag" : "va"
+    },
+
+
+
+    {
+        "background" : "tmbub",
+        "bosses" : [
+            "Ultima Weapon"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Minstrel's Ballad: Ultima's Bane",
+        "tag" : "tmbub"
+    },
+    {
+        "background" : "the",
+        "bosses" : [
+            "Garuda"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Howling Eye",
+        "tag" : "the"
+    },
+    {
+        "background" : "tn",
+        "bosses" : [
+            "Titan"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Navel",
+        "tag" : "tn"
+    },
+    {
+        "background" : "tboe",
+        "bosses" : [
+            "Ifrit"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Bowl of Embers",
+        "tag" : "tboe"
+    },
+    {
+        "background" : "tm",
+        "bosses" : [
+            "Good King Moggle Mog XII"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "Thornmarch",
+        "tag" : "tm"
+    },
+    {
+        "background" : "tw",
+        "bosses" : [
+            "Leviathan"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Whorleater",
+        "tag" : "tw"
+    },
+    {
+        "background" : "tst",
+        "bosses" : [
+            "Ramuh"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Striking Tree",
+        "tag" : "tst"
+    },
+    {
+        "background" : "aaa",
+        "bosses" : [
+            "Shiva"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "Akh Afah Amphitheatre",
+        "tag" : "aaa"
+    },
+    {
+        "background" : "uf",
+        "bosses" : [
+            "Odin"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "Urth's Fount",
+        "tag" : "uf"
+    },
+
+
+    {
+        "background" : "tbcob",
+        "bosses" : [
+            "Allagan Defense System",
+            "Caduceus",
+            "Turn 2",
+            "Turn 3",
+            "Turn 4",
+            "Twintania"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Binding Coil of Bahamut",
+        "tag" : "tbcob"
+    },
+    {
+        "background" : "tscob",
+        "bosses" : [
+            "Rafflesia",
+            "Melusine",
+            "The Avatar",
+            "Nael Deus Darnus"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Second Coil of Bahamut",
+        "tag" : "tscob"
+    },
+    {
+        "background" : "tfcob",
+        "bosses" : [
+            "Imdugud",
+            "Kaliya",
+            "Bennu",
+            "Bahamut Prime"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The Final Coil of Bahamut",
+        "tag" : "tfcob"
+    },
+    {
+        "background" : "lota",
+        "bosses" : [
+            "Bone Dragon",
+            "Atomos",
+            "Thanatos",
+            "Allagan Bomb",
+            "King Behemoth",
+            "Phlegethon"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "Labyrinth of the Ancients",
+        "tag" : "lota"
+    },
+    {
+        "background" : "st",
+        "bosses" : [
+            "Scylla",
+            "Glasya Labolas",
+            "Amon",
+            "Xande"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "Syrcus Tower",
+        "tag" : "st"
+    },
+    {
+        "background" : "twod",
+        "bosses" : [
+            "Angra Mainyu",
+            "Five-headed Dragon",
+            "Howling Atomos",
+            "Cerberus",
+            "Cloud of Darkness"
+        ],
+        "exp" : "realm_reborn",
+        "name" : "The World of Darkness",
+        "tag" : "twod"
     }
 ]
