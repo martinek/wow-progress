@@ -8,6 +8,7 @@
 
 #wowprogress .raid_head {
 	color: #dddddd;
+    text-shadow: #000000 0 0 3px;
 }
 
 #wowprogress .raid_head a{
