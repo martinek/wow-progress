@@ -48,6 +48,7 @@
 
 #wowprogress .raid ul {
 	border-top: 1px dotted #000000;
+	margin-bottom: 0px;
 }
 
 #wowprogress .down {
