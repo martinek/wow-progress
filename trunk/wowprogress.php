@@ -53,10 +53,32 @@ class wowprogress_widget extends WP_Widget {
 
 	private $WoWraids;
 
-	function wowprogress_widget(){
+	function wowprogress_widget() {
+		// Register style sheet.
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
+
 		$widget_ops = array('classname' => WOWPROGRESS_PLUGIN_SLUG, 'description' => 'WoW Progress Widget' );
-		parent::WP_Widget(false, $name = 'WoW Progress', $widget_ops);
+		parent::__construct(false, $name = 'WoW Progress', $widget_ops);
 		$this->WoWraids = $this->load_raids_file(WOWPROGRESS_RAIDS_FILE);
+	}
+
+	function register_plugin_scripts() {
+		// Scripts
+		wp_register_script('wowhead', 'http://static.wowhead.com/widgets/power.js');
+		wp_register_script(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL.'/wowprogress.js');
+
+		wp_enqueue_script('jquery');
+		wp_enqueue_script('wowhead');
+		wp_enqueue_script(WOWPROGRESS_PLUGIN_SLUG);
+
+		// Styles
+		wp_register_style(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_PLUGIN_SLUG.'.css');
+		wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG);
+
+		$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
+        wp_register_style(WOWPROGRESS_PLUGIN_SLUG.'_theme', WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_THEMES_FOLDER.'/'.$options['theme']);
+		wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG.'_theme');
 	}
 
 	function widget($args, $instance){
@@ -343,22 +365,6 @@ register_uninstall_hook(__FILE__, 'wowprogress_widget_uninstall');
 function wowprogress_init(){
 	load_plugin_textdomain('wowprogress', false, WOWPROGRESS_PLUGIN_SLUG."/languages/");
 
-	/* Plugin scripts */
-	wp_enqueue_script('jquery');
-
-	wp_register_script('wowhead', 'http://static.wowhead.com/widgets/power.js');
-	wp_enqueue_script('wowhead');
-
-	wp_register_script(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL.'/wowprogress.js');
-	wp_enqueue_script(WOWPROGRESS_PLUGIN_SLUG);
-
-	/* Plugin theme */
-	wp_register_style(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_PLUGIN_SLUG.'.css');
-	wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG);
-
-	$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
-	wp_register_style(WOWPROGRESS_PLUGIN_SLUG.'_theme', WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_THEMES_FOLDER.'/'.$options['theme']);
-	wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG.'_theme');
 }
 add_action('plugins_loaded', 'wowprogress_init');
 
