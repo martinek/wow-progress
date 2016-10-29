@@ -52,6 +52,14 @@ else{
 	define('TAB', "");
 }
 
+function wowp_get($arr, $key, $default = null) {
+	if(isset($arr[$key])) {
+		return $arr[$key];
+	} else {
+		return $default;
+	}
+}
+
 class wowprogress_widget extends WP_Widget {
 
 	private $WoWraids;
@@ -115,10 +123,10 @@ class wowprogress_widget extends WP_Widget {
 
 		$exp = "";
 		foreach ($this->WoWraids as $raid) {
-            // Skip if raid is disabled in settings
-            if(!isset($options['show_raid'][$raid['tag']]) || $options['show_raid'][$raid['tag']] != '1') continue;
-			// Skip if raid is not shown
-			if(!$instance[$raid['tag']."_show"]) continue;
+            // Skip if raid is disabled in settings, default: hide -> 0
+            if(wowp_get(wowp_get($options, 'show_raid', []), $raid['tag'], '0') != '1') continue;
+			// Skip if raid is not shown, default: hide -> false
+			if(!wowp_get($instance, $raid['tag']."_show", false)) continue;
 
 			// Output expansion header and start raid list if expansion is different from previous
 			if ($exp != $raid['exp']){
@@ -274,13 +282,13 @@ class wowprogress_widget extends WP_Widget {
 		echo '</tbody>';
 
 		foreach ($this->WoWraids as $raid) {
-            if(!isset($options['show_raid'][$raid['tag']]) || $options['show_raid'][$raid['tag']] != '1') continue;
+            if(wowp_get($options['show_raid'], $raid['tag'], '0') != '1') continue;
 
 			echo '<thead><tr><th colspan="4">'.$raid['name'].'</th></tr></thead>';
 
 			echo '<tbody>';
-			echo $this->form_checkbox_input($raid['tag']."_show", __("Show", "wowprogress"), $instance[$raid['tag']."_show"]);
-			echo $this->form_checkbox_input($raid['tag']."_expand", __("Open", "wowprogress"), $instance[$raid['tag']."_expand"]);
+			echo $this->form_checkbox_input($raid['tag']."_show", __("Show", "wowprogress"), wowp_get($instance, $raid['tag']."_show"));
+			echo $this->form_checkbox_input($raid['tag']."_expand", __("Open", "wowprogress"), wowp_get($instance, $raid['tag']."_expand"));
 			echo '</tbody>';
 
 			echo '<thead><tr><th>N</th><th>HC</th><th>MH</th><th>Boss</th></tr></thead>';
@@ -290,7 +298,7 @@ class wowprogress_widget extends WP_Widget {
 				echo $this->form_boss($raid['tag']."_".$boss_id, $boss_name, $instance);
 
             if(array_key_exists("achievement", $raid)) {
-                echo $this->form_text_input($raid['tag']."_time", __("Time", "wowprogress"), $instance[$raid['tag']."_time"], __("Time when guild achieved guild run achievement.\nShould be in unix micro time (ei. 1304035200000).", "wowprogress"));
+                echo $this->form_text_input($raid['tag']."_time", __("Time", "wowprogress"), wowp_get($instance, $raid['tag']."_time"), __("Time when guild achieved guild run achievement.\nShould be in unix micro time (ei. 1304035200000).", "wowprogress"));
             }
 
 			echo '<tr><td colspan="4"><hr /></td></tr>';
@@ -346,12 +354,12 @@ class wowprogress_widget extends WP_Widget {
 
 		$res = "";
 		$res .= '<tr>';
-		$res .= '<td>'.$this->form_checkbox($boss_id, $instance[$boss_id]).'</td>';
-		$res .= '<td>'.$this->form_checkbox($boss_id_hc, $instance[$boss_id_hc]).'</td>';
-        $res .= '<td>'.$this->form_checkbox($boss_id_myth, $instance[$boss_id_myth]).'</td>';
+		$res .= '<td>'.$this->form_checkbox($boss_id, wowp_get($instance, $boss_id)).'</td>';
+		$res .= '<td>'.$this->form_checkbox($boss_id_hc, wowp_get($instance, $boss_id_hc)).'</td>';
+        $res .= '<td>'.$this->form_checkbox($boss_id_myth, wowp_get($instance, $boss_id_myth)).'</td>';
 		$res .= '<td>'.$this->form_label($boss_id, $boss_name).'</td>';
 		$res .= '</tr>';
-        $res .= $this->form_link_input($boss_id.'_vid', '<img style="vertical-align: middle" src="'.WOWPROGRESS_VIDEO_ICON.'"/>', $instance[$boss_id."_vid"], __("URL to video.", "wowprogress"));
+        $res .= $this->form_link_input($boss_id.'_vid', '<img style="vertical-align: middle" src="'.WOWPROGRESS_VIDEO_ICON.'"/>', wowp_get($instance, $boss_id."_vid"), __("URL to video.", "wowprogress"));
 
         return $res;
 	}
