@@ -20,8 +20,6 @@ add_action('admin_menu', 'wowprogress_add_options_page');
 
 
 function wowprogress_render_form() {
-	$EXP_URL = wowprogress_widget::exp_base_url();
-
 	?>
 	<div class="wrap">
 		
@@ -42,7 +40,7 @@ function wowprogress_render_form() {
 					<th scope="row"><?php _e('Theme', 'wowprogress') ?></th>
 					<td>
 						<select name='wowprogress_options[theme]'>
-							<?php foreach(wow_progress_themes() as $key => $theme){ ?>
+							<?php foreach(wowprogress_themes() as $key => $theme){ ?>
 								<option value='<?php echo $key; ?>' <?php selected($options['theme'], $key); ?>><?php echo $theme; ?></option>
 							<?php } ?>
 						</select>
@@ -69,12 +67,12 @@ function wowprogress_render_form() {
                 <tr valign="top">
                     <th scope="row"><?php _e('Enabled Raids', 'wowprogress') ?></th>
                     <td>
-						<?php $exp = ''; ?>
-                        <?php
+						<?php
+							$exp = '';
                             foreach($availableRaids as $raid){
                                 if($exp != $raid['exp']){
                                     $exp = $raid['exp'];
-                                    echo "<img src=" . sprintf($EXP_URL, $exp) . "><br />";
+                                    echo "<img src=" . wowprogress_widget::asset_url(wowprogress_widget::expansion_path($exp)) . "><br />";
                                 }
 
                                 $input_name = "wowprogress_options[show_raid][".$raid['tag']."]";

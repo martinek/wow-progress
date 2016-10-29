@@ -3,7 +3,7 @@ Contributors: martinek
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, legion
 Requires at least: 3.0
 Tested up to: 4.6.0
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,10 @@ I have created package for FFXIV. If you are interested, let me know via email.
 4. Administration
 
 == Changelog ==
+
+= 1.7.2 =
+* fixed styles and javascript sometimes loading via wrong protocol
+* reworked paths determination for files and images. All files are now first searched for in theme directory, then in plugin directory
 
 = 1.7.1 =
 * updated wowhead tooltips js link to newer CDN to fix ssl issues

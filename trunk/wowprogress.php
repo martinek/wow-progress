@@ -3,7 +3,7 @@
  * Plugin Name: WoW Progress
  * Description: A widget that helps to display guild raid progress.
  * Author: freevision.sk
- * Version: 1.7.1
+ * Version: 1.7.2
  * Author URI: http://www.freevision.sk
  * Text Domain: wowprogress
  */
@@ -23,24 +23,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see http://www.gnu.org/licenses/.
  */
-define( 'WOWPROGRESS_VERSION', '1.7.1' );
+define( 'WOWPROGRESS_VERSION', '1.7.2' );
 if ( ! defined( 'WOWPROGRESS_PLUGIN_SLUG' ) )	define( 'WOWPROGRESS_PLUGIN_SLUG',	'wowprogress');
 if ( ! defined( 'WOWPROGRESS_PLUGIN_FILE' ) )	define( 'WOWPROGRESS_PLUGIN_FILE',	plugin_basename(__FILE__));
 if ( ! defined( 'WOWPROGRESS_PLUGIN_NAME' ) )	define( 'WOWPROGRESS_PLUGIN_NAME',	'WoW Progress');
-if ( ! defined( 'WOWPROGRESS_PLUGIN_DIR' ) )	define( 'WOWPROGRESS_PLUGIN_DIR',	WP_PLUGIN_DIR . '/' . plugin_basename( dirname( __FILE__ ) ) );
-if ( ! defined( 'WOWPROGRESS_PLUGIN_URL' ) )	define( 'WOWPROGRESS_PLUGIN_URL',	WP_PLUGIN_URL . '/' . plugin_basename( dirname( __FILE__ ) ) );
+
+if ( ! defined( 'WOWPROGRESS_PLUGIN_DIR' ) )	define( 'WOWPROGRESS_PLUGIN_DIR',	plugin_dir_path( __FILE__ ));
+if ( ! defined( 'WOWPROGRESS_PLUGIN_URL' ) )	define( 'WOWPROGRESS_PLUGIN_URL',	plugin_dir_url( __FILE__ ));
+if ( ! defined( 'WOWPROGRESS_THEME_PLUGIN_DIR' ) )	define( 'WOWPROGRESS_THEME_PLUGIN_DIR',	get_template_directory().'/wow-progress/');
+if ( ! defined( 'WOWPROGRESS_THEME_PLUGIN_URL' ) )	define( 'WOWPROGRESS_THEME_PLUGIN_URL',	get_template_directory_uri().'/wow-progress/');
 
 if ( ! defined( 'WOWPROGRESS_THEMES_FOLDER' ) )	define( 'WOWPROGRESS_THEMES_FOLDER','themes' );
-if ( ! defined( 'THEME_THEMES_FOLDER' ) )	    define( 'THEME_THEMES_FOLDER',      get_template_directory().'/wow-progress/themes' );
-if ( ! defined( 'THEME_THEMES_URL' ) )	        define( 'THEME_THEMES_URL',         get_template_directory_uri().'/wow-progress/themes' );
-
-if ( ! defined( 'WOWPROGRESS_RAIDS_FILE' ) )	define( 'WOWPROGRESS_RAIDS_FILE',	WOWPROGRESS_PLUGIN_DIR.'/raids.json' );
-if ( ! defined( 'THEME_RAIDS_FILE' ) )	        define( 'THEME_RAIDS_FILE',	        get_template_directory().'/wow-progress/raids.json' );
-if ( ! defined( 'WOWPROGRESS_EXPANSIONS' ) )	define( 'WOWPROGRESS_EXPANSIONS',	WOWPROGRESS_PLUGIN_URL.'/images/exp/%s.png' );
-if ( ! defined( 'WOWPROGRESS_RAIDS' ) )			define( 'WOWPROGRESS_RAIDS',		WOWPROGRESS_PLUGIN_URL.'/images/raids/%s.png' );
-if ( ! defined( 'WOWPROGRESS_HC_ICON' ) )		define( 'WOWPROGRESS_HC_ICON',		WOWPROGRESS_PLUGIN_URL.'/images/heroic_icon.png' );
-if ( ! defined( 'WOWPROGRESS_VIDEO_ICON' ) )	define( 'WOWPROGRESS_VIDEO_ICON',	WOWPROGRESS_PLUGIN_URL.'/images/video_icon.png' );
-if ( ! defined( 'WOWPROGRESS_ACHI' ) )			define( 'WOWPROGRESS_ACHI',			'<a href="http://www.wowhead.com/achievement=%d?who=%s&when=%d">%s</a>' );
+if ( ! defined( 'WOWPROGRESS_VIDEO_ICON' ) )	define( 'WOWPROGRESS_VIDEO_ICON',	'video_icon.png' );
+if ( ! defined( 'WOWPROGRESS_ACHI' ) )			define( 'WOWPROGRESS_ACHI',			'<a href="//www.wowhead.com/achievement=%d?who=%s&when=%d">%s</a>' );
 
 $nice_code = false;
 if($nice_code){
@@ -77,14 +72,14 @@ class wowprogress_widget extends WP_Widget {
 	function register_plugin_scripts() {
 		// Scripts
 		wp_register_script('wowhead', '//wow.zamimg.com/widgets/power.js');
-		wp_register_script(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL.'/wowprogress.js');
+		wp_register_script(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL . WOWPROGRESS_PLUGIN_SLUG . '.js');
 
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('wowhead');
 		wp_enqueue_script(WOWPROGRESS_PLUGIN_SLUG);
 
 		// Styles
-		wp_register_style(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_PLUGIN_SLUG.'.css');
+		wp_register_style(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL . WOWPROGRESS_PLUGIN_SLUG . '.css');
 		wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG);
 
 		$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
@@ -92,26 +87,36 @@ class wowprogress_widget extends WP_Widget {
 		wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG.'_theme');
 	}
 
-    static function raid_base_url(){
-        if(file_exists(THEME_RAIDS_FILE))
-            return get_template_directory_uri() . '/wow-progress/images/raids/%s.png';
-        else
-            return WOWPROGRESS_RAIDS;
-    }
+	static function expansion_path($exp) {
+		return self::image_path('exp/'.$exp.'.png');
+	}
 
-    static function exp_base_url(){
-        if(file_exists(THEME_RAIDS_FILE))
-            return get_template_directory_uri() . '/wow-progress/images/exp/%s.png';
-        else
-            return WOWPROGRESS_EXPANSIONS;
-    }
+	static function raid_path($raid) {
+		return self::image_path('raids/'.$raid.'.png');
+	}
+
+	static function image_path($image) {
+		return 'images/'.$image;
+	}
+
+	static function asset_url($path) {
+		if (file_exists(WOWPROGRESS_THEME_PLUGIN_DIR . $path))
+			return WOWPROGRESS_THEME_PLUGIN_URL . $path;
+		else
+			return WOWPROGRESS_PLUGIN_URL . $path;
+	}
+
+	static function asset_path($path) {
+		if (file_exists(WOWPROGRESS_THEME_PLUGIN_DIR . $path))
+			return WOWPROGRESS_THEME_PLUGIN_DIR . $path;
+		else
+			return WOWPROGRESS_PLUGIN_DIR. $path;
+	}
 
     function widget($args, $instance){
 		extract($args, EXTR_SKIP);
 		$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
-        $EXP_URL = $this->exp_base_url();
-        $RAID_URL = $this->raid_base_url();
-        $PROGRESS_IN_TITLE = (array_key_exists('show_progress_in_raid_title', $options) && $options['show_progress_in_raid_title']);
+        $PROGRESS_IN_TITLE = wowp_get($options, 'show_progress_in_raid_title', false);
 
 		echo $before_widget;
 		if ( !empty( $instance['title'] ) )
@@ -137,14 +142,15 @@ class wowprogress_widget extends WP_Widget {
 				$exp = $raid['exp'];
 
 				// Output header
-				echo TAB.'<div class="expansion_head"><img src="' . sprintf($EXP_URL, $exp) . '" /></div>'.NL;
+				echo TAB.'<div class="expansion_head"><img src="' . self::asset_url(self::expansion_path($exp)) . '" /></div>'.NL;
 
 				// Start raids list
 				echo TAB.'<ul class="expansion">'.NL;
 			}
 
 			// Start raid
-			echo TAB.TAB.'<li class="raid"'.($options['show_backgrounds'] ? 'style="background-image: url(\'' . sprintf($RAID_URL, $raid['background']) . '\');"' : '') .'>'.NL;
+			$style = ' style="background-image: url(\'' . self::asset_url(self::raid_path($raid['background'])) . '\');"';
+			echo TAB.TAB.'<li class="raid"'.(wowp_get($options, 'show_backgrounds', false) ? $style : '') .'>'.NL;
 
 			// Check if raid is complete
             $progress_count = array(
@@ -178,7 +184,7 @@ class wowprogress_widget extends WP_Widget {
             if($PROGRESS_IN_TITLE)
                 echo '<span class="raid_progress">'.$progress.'/'.count($raid['bosses']).'</span>';
 
-			if(array_key_exists('achievement', $raid) && $complete && $instance["guild"] != "" && $instance[$raid['tag']."_time"] != "")
+			if(wowp_get($raid, 'achievement') && $complete && $instance["guild"] != "" && $instance[$raid['tag']."_time"] != "")
 				printf(WOWPROGRESS_ACHI, $raid['achievement'], rawurlencode($instance["guild"]), $instance[$raid['tag']."_time"], $raid['name']);
 			else
 				echo $raid['name'];
@@ -212,7 +218,9 @@ class wowprogress_widget extends WP_Widget {
                 echo TAB.TAB.TAB.TAB.TAB.'<li'.($css_class ? ' class="'.$css_class.'"' : '').'>';
                 echo $boss;
                 if($instance[$raid['tag']."_".$bossid."_vid"] != ""){
-                    echo '<a class="video_link" href="'.$instance[$raid['tag']."_".$bossid."_vid"].'"><img src="'.WOWPROGRESS_VIDEO_ICON.'" /></a>';
+                    echo '<a class="video_link" href="'.$instance[$raid['tag']."_".$bossid."_vid"].'">';
+	                echo '<img src="'.self::asset_url(self::image_path(WOWPROGRESS_VIDEO_ICON)).'" />';
+	                echo '</a>';
                 }
                 echo '</li>'.NL;
             }
@@ -359,29 +367,25 @@ class wowprogress_widget extends WP_Widget {
         $res .= '<td>'.$this->form_checkbox($boss_id_myth, wowp_get($instance, $boss_id_myth)).'</td>';
 		$res .= '<td>'.$this->form_label($boss_id, $boss_name).'</td>';
 		$res .= '</tr>';
-        $res .= $this->form_link_input($boss_id.'_vid', '<img style="vertical-align: middle" src="'.WOWPROGRESS_VIDEO_ICON.'"/>', wowp_get($instance, $boss_id."_vid"), __("URL to video.", "wowprogress"));
+        $res .= $this->form_link_input($boss_id.'_vid', '<img style="vertical-align: middle" src="'.self::asset_url(self::image_path('video_icon.png')).'"/>', wowp_get($instance, $boss_id."_vid"), __("URL to video.", "wowprogress"));
 
         return $res;
 	}
 
 	static function load_raids_file(){
-        if(file_exists(THEME_RAIDS_FILE))
-		    return json_decode(file_get_contents(THEME_RAIDS_FILE), true);
-        else
-            return json_decode(file_get_contents(WOWPROGRESS_RAIDS_FILE), true);
+        return json_decode(file_get_contents(self::asset_path('raids.json')), true);
 	}
-
 }
 
-function wow_progress_themes(){
+function wowprogress_themes(){
     $themes = array();
 
-    $files = glob(WOWPROGRESS_PLUGIN_DIR . '/' . WOWPROGRESS_THEMES_FOLDER . "/*.css");
+    $files = glob(WOWPROGRESS_PLUGIN_DIR.WOWPROGRESS_THEMES_FOLDER."/*.css");
     foreach($files as $filepath) {
         $themes['p_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
     }
 
-    $theme_files = glob(THEME_THEMES_FOLDER . "/*.css");
+    $theme_files = glob(WOWPROGRESS_THEME_PLUGIN_DIR.WOWPROGRESS_THEMES_FOLDER."/*.css");
     foreach($theme_files as $filepath) {
         $themes['t_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
     }
@@ -394,8 +398,8 @@ function theme_file_url($key) {
         't_',
         'p_'
     ), array(
-        THEME_THEMES_FOLDER.'/',
-        WOWPROGRESS_PLUGIN_URL.'/'.WOWPROGRESS_THEMES_FOLDER.'/'
+	    WOWPROGRESS_THEME_PLUGIN_DIR.WOWPROGRESS_THEMES_FOLDER.'/',
+        WOWPROGRESS_PLUGIN_URL.WOWPROGRESS_THEMES_FOLDER.'/'
     ), $key);
 }
 
@@ -436,7 +440,7 @@ add_action('plugins_loaded', 'wowprogress_init');
 
 
 function wowprogress_init_widget(){
-	return register_widget('wowprogress_widget');
+	register_widget('wowprogress_widget');
 }
 add_action('widgets_init', 'wowprogress_init_widget');
 
