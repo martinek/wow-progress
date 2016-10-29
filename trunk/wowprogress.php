@@ -124,7 +124,7 @@ class wowprogress_widget extends WP_Widget {
 		$exp = "";
 		foreach ($this->WoWraids as $raid) {
             // Skip if raid is disabled in settings, default: hide -> 0
-            if(wowp_get(wowp_get($options, 'show_raid', []), $raid['tag'], '0') != '1') continue;
+            if(wowp_get(wowp_get($options, 'show_raid', array()), $raid['tag'], '0') != '1') continue;
 			// Skip if raid is not shown, default: hide -> false
 			if(!wowp_get($instance, $raid['tag']."_show", false)) continue;
 
