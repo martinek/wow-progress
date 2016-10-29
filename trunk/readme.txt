@@ -1,9 +1,9 @@
 === WoW Progress ===
 Contributors: martinek
-Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss
+Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, legion
 Requires at least: 3.0
 Tested up to: 4.6.0
-Stable tag: 1.6.0
+Stable tag: 1.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +12,9 @@ A widget that helps to display guild raid progress.
 == Description ==
 
 A widget that helps to display guild raid progress.
-Each boss have separate option to toggle kill, heroic kill and mythic kill. Contains all raids up to Tier 19 (first Legion tier). Each raid can be toggled to be displayed and if shown or collapsed.
+Each boss have separate option to toggle kill, heroic kill and mythic kill. Contains all raids up to patch 7.1. Each raid can be toggled to be displayed and if shown or collapsed.
 
-There is theme support with sample Light and Dark theme. Also my own theme is attached if you are interested. You should create your own theme and customise it to match your needs. 
+There is theme support with sample Light and Dark theme. Also my own theme is attached if you are interested. You should create your own theme and customise it to match your needs.
 
 Progress can be configured in widget menu.
 Theme and backgrounds toggle is in Settings > WoW Progress menu.
@@ -31,15 +31,20 @@ If you managed to find bugs or want to correct some of my codes, please don't he
 
 = How do I change the look of plugin? =
 
-You can create new plugin theme by creating new <theme>.css file in `/wp-content/plugins/wowprogress/themes/` folder. Then select this theme from Settings > WoW Progress. Backup your theme when updating plugin.
+You can create new plugin theme by creating new <theme>.css file in `/wp-content/themes/<your_theme>/wowprogress/themes/` folder. Then select this theme from Settings > WoW Progress.
 
 = How do I change background images of raids? =
 
-You can either replace image of raid in `/images/raids/` folder, or you can upload your own and change filename in raids.json.
+You can either replace image of raid in `plugins/wow-progress/images/raids/` folder, or you can upload your own and change filename in raids.json.
 
 = I can't see new raids? =
 
 You can enable which raids are shown in widget in Settings > WoW Progress. If you can't see your raid there, it probably isn't supported or plugin wasn't updated yet. Please let me know if any new raids are missing.
+
+= Can I use this for other games? =
+
+As of 1.7.0 you can! Create your own `raids.json` and put it in `/wp-content/themes/<your_theme>/wowprogress/` folder. Add your custom raid and expansion images to `/wp-content/themes/<your_theme>/wowprogress/images/` (expansions to `exp` folder, raids to `raids`). This should do it. Don't forget to activate your raids both in settings and in widget.
+I have created package for FFXIV. If you are interested, let me know via email.
 
 == Screenshots ==
 
@@ -49,6 +54,14 @@ You can enable which raids are shown in widget in Settings > WoW Progress. If yo
 4. Administration
 
 == Changelog ==
+
+= 1.7.0 =
+* added Trial of Valor raid (patch 7.1)
+* added option to show raid progress in raid title
+* added option to use custom raids.json and custom images from your theme folder
+* updated themes, texts should now be a bit more readable
+* fixed wowhead script register url to work with both http and https
+* fixed a lot of PHP warnings
 
 = 1.6.0 =
 * added Emerald Nightmare raid
