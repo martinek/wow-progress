@@ -56,7 +56,7 @@ class wowprogress_widget extends WP_Widget {
 
 	private $WoWraids;
 
-	function wowprogress_widget() {
+	function __construct() {
 		// Register style sheet.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'register_plugin_scripts' ) );
