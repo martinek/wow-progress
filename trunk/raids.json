@@ -1,5 +1,17 @@
 [
     {
+        "achievement" : 11403,
+        "background" : "tov",
+        "bosses" : [
+            "Guarm",
+            "Helya",
+            "Odyn"
+        ],
+        "exp" : "legion",
+        "name" : "Trial of Valor",
+        "tag" : "tov"
+    },
+    {
         "achievement" : 10868,
         "background" : "nh",
         "bosses" : [
