@@ -162,13 +162,13 @@ class wowprogress_widget extends WP_Widget {
 			$complete_hc = true;
             $complete_myth = true;
 			foreach($raid['bosses'] as $bossid => $boss){
-                if($instance[$raid['tag']."_".$bossid] == "on") $progress_count["normal"]++;
+                if(wowp_get($instance, $raid['tag']."_".$bossid) == "on") $progress_count["normal"]++;
                 else $complete = false;
 
-                if($instance[$raid['tag']."_".$bossid."_hc"] == "on") $progress_count["hc"]++;
+                if(wowp_get($instance, $raid['tag']."_".$bossid."_hc") == "on") $progress_count["hc"]++;
                 else $complete_hc  = false;
 
-                if($instance[$raid['tag']."_".$bossid."_myth"] == "on") $progress_count["myth"]++;
+                if(wowp_get($instance, $raid['tag']."_".$bossid."_myth") == "on") $progress_count["myth"]++;
                 else $complete_myth = false;
 			}
             $progress = $progress_count["normal"];
@@ -198,9 +198,9 @@ class wowprogress_widget extends WP_Widget {
 			// Output each boss
 			foreach($raid['bosses'] as $bossid => $boss){
                 $css_class = Array();
-                $n = $instance[$raid['tag']."_".$bossid] == "on";
-                $hc = $instance[$raid['tag']."_".$bossid."_hc"] == "on";
-                $myth = $instance[$raid['tag']."_".$bossid."_myth"] == "on";
+                $n = wowp_get($instance, $raid['tag']."_".$bossid) == "on";
+                $hc = wowp_get($instance, $raid['tag']."_".$bossid."_hc") == "on";
+                $myth = wowp_get($instance, $raid['tag']."_".$bossid."_myth") == "on";
 
                 if($n || $hc || $myth){
                     $css_class[] = "down";
@@ -217,8 +217,8 @@ class wowprogress_widget extends WP_Widget {
 
                 echo TAB.TAB.TAB.TAB.TAB.'<li'.($css_class ? ' class="'.$css_class.'"' : '').'>';
                 echo $boss;
-                if($instance[$raid['tag']."_".$bossid."_vid"] != ""){
-                    echo '<a class="video_link" href="'.$instance[$raid['tag']."_".$bossid."_vid"].'">';
+                if(wowp_get($instance, $raid['tag']."_".$bossid."_vid") != ""){
+                    echo '<a class="video_link" href="'.wowp_get($instance, $raid['tag']."_".$bossid."_vid").'">';
 	                echo '<img src="'.self::asset_url(self::image_path(WOWPROGRESS_VIDEO_ICON)).'" />';
 	                echo '</a>';
                 }
