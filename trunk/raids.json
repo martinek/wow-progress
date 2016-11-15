@@ -3,9 +3,9 @@
         "achievement" : 11403,
         "background" : "tov",
         "bosses" : [
+            "Odyn",
             "Guarm",
-            "Helya",
-            "Odyn"
+            "Helya"
         ],
         "exp" : "legion",
         "name" : "Trial of Valor",
