@@ -3,7 +3,7 @@
  * Plugin Name: WoW Progress
  * Description: A widget that helps to display guild raid progress.
  * Author: freevision.sk
- * Version: 1.7.3
+ * Version: 1.7.4
  * Author URI: http://www.freevision.sk
  * Text Domain: wowprogress
  */
@@ -23,7 +23,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see http://www.gnu.org/licenses/.
  */
-define( 'WOWPROGRESS_VERSION', '1.7.3' );
+define( 'WOWPROGRESS_VERSION', '1.7.4' );
 if ( ! defined( 'WOWPROGRESS_PLUGIN_SLUG' ) )	define( 'WOWPROGRESS_PLUGIN_SLUG',	'wowprogress');
 if ( ! defined( 'WOWPROGRESS_PLUGIN_FILE' ) )	define( 'WOWPROGRESS_PLUGIN_FILE',	plugin_basename(__FILE__));
 if ( ! defined( 'WOWPROGRESS_PLUGIN_NAME' ) )	define( 'WOWPROGRESS_PLUGIN_NAME',	'WoW Progress');
@@ -381,14 +381,18 @@ function wowprogress_themes(){
     $themes = array();
 
     $files = glob(WOWPROGRESS_PLUGIN_DIR.WOWPROGRESS_THEMES_FOLDER."/*.css");
-    foreach($files as $filepath) {
-        $themes['p_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
-    }
+	if ($files) {
+		foreach($files as $filepath) {
+			$themes['p_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
+		}
+	}
 
     $theme_files = glob(WOWPROGRESS_THEME_PLUGIN_DIR.WOWPROGRESS_THEMES_FOLDER."/*.css");
-    foreach($theme_files as $filepath) {
-        $themes['t_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
-    }
+	if ($theme_files) {
+		foreach($theme_files as $filepath) {
+			$themes['t_'. basename($filepath)] = preg_replace('/\\.[^.\\s]{3,4}$/', '', basename($filepath));
+		}
+	}
 
     return $themes;
 }
