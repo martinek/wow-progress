@@ -3,7 +3,7 @@ Contributors: martinek
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, legion
 Requires at least: 3.0
 Tested up to: 4.7.2
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,9 @@ I have created package for FFXIV. If you are interested, let me know via email.
 4. Administration
 
 == Changelog ==
+
+= 1.7.5 =
+* fixed order of Legion raids.
 
 = 1.7.4 =
 * fixed warning if custom theme files folder does not exist on some systems.

@@ -1,17 +1,5 @@
 [
     {
-        "achievement" : 11403,
-        "background" : "tov",
-        "bosses" : [
-            "Odyn",
-            "Guarm",
-            "Helya"
-        ],
-        "exp" : "legion",
-        "name" : "Trial of Valor",
-        "tag" : "tov"
-    },
-    {
         "achievement" : 10868,
         "background" : "nh",
         "bosses" : [
@@ -29,6 +17,18 @@
         "exp" : "legion",
         "name" : "Nighthold",
         "tag" : "nh"
+    },
+    {
+        "achievement" : 11403,
+        "background" : "tov",
+        "bosses" : [
+            "Odyn",
+            "Guarm",
+            "Helya"
+        ],
+        "exp" : "legion",
+        "name" : "Trial of Valor",
+        "tag" : "tov"
     },
     {
         "achievement" : 10866,
