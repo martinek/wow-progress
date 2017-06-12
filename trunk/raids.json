@@ -1,5 +1,23 @@
 [
     {
+        "achievement" : 11782,
+        "background" : "tos",
+        "bosses" : [
+            "Goroth",
+            "Demonic Inquisition",
+            "Harjatan",
+            "Mistress Sassz'ine",
+            "Sisters of the Moon",
+            "The Desolate Host",
+            "Maiden of Vigilance",
+            "Fallen Avatar",
+            "Kil'jaeden"
+        ],
+        "exp" : "legion",
+        "name" : "Tomb of Sargeras",
+        "tag" : "tos"
+    },
+    {
         "achievement" : 10868,
         "background" : "nh",
         "bosses" : [
