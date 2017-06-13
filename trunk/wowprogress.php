@@ -278,6 +278,7 @@ class wowprogress_widget extends WP_Widget {
 
 	function print_form_fields($instance){
         $options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
+        $guild = wowp_get($instance, 'guild', '');
 
         echo '<table>';
 
@@ -285,7 +286,7 @@ class wowprogress_widget extends WP_Widget {
 
 		echo '<tbody>';
 		echo $this->form_text_input("title", __("Title:"), esc_attr($instance['title']));
-		echo $this->form_text_input("guild", __("Guild", "wowprogress"), esc_attr($instance['guild']), __("Name of your guild.\nThis will be used in achievement link.", "wowprogress"));
+		echo $this->form_text_input("guild", __("Guild", "wowprogress"), esc_attr($guild), __("Name of your guild.\nThis will be used in achievement link.", "wowprogress"));
 		echo '<tr><td colspan="4"><hr /></td></tr>';
 		echo '</tbody>';
 
