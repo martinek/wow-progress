@@ -1,5 +1,25 @@
 [
     {
+        "achievement" : 12112,
+        "background" : "atbt",
+        "bosses" : [
+            "Garothi Worldbreaker",
+            "Felhounds of Sargeras",
+            "Antoran High Command",
+            "Portal Keeper Hasabel",
+            "Eonar the Life-Binder",
+            "Imonar the Soulhunter",
+            "Kin'garoth",
+            "Varimathras",
+            "The Coven of Shivarra",
+            "Aggramar",
+            "Argus the Unmaker"
+        ],
+        "exp" : "legion",
+        "name" : "Antorus, the Burning Throne",
+        "tag" : "atbt"
+    },
+    {
         "achievement" : 11782,
         "background" : "tos",
         "bosses" : [
