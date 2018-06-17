@@ -427,7 +427,10 @@ if (!function_exists('wowprogress_widget_install')) {
 			$arr = array(
 				"show_backgrounds" => "1",
 				"theme" => "light.css",
-                "show_progress_in_raid_title" => false,
+				"show_progress_in_raid_title" => false,
+				"videos_in_new_window" => false,
+				"letters_difficulty_display" => false,
+				"show_difficulty_in_raid_title" => false,
                 "show_raid" => array(
                     "soo" => "1",
                     "tot" => "1"
