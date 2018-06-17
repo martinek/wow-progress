@@ -119,7 +119,8 @@ class wowprogress_widget extends WP_Widget {
 		$PROGRESS_IN_TITLE = wowp_get($options, 'show_progress_in_raid_title', false);
 		$DIFFICULTY_IN_TITLE = wowp_get($options, 'show_difficulty_in_raid_title', false);
 		$LETTERS_FOR_DIFFICULTY = wowp_get($options, 'letters_difficulty_display', false);
-
+		$VIDEOS_IN_NEW_WINDOW = wowp_get($options, 'videos_in_new_window', false);
+		
 		echo $before_widget;
 		if ( !empty( $instance['title'] ) )
 			echo $before_title . $instance['title'] . $after_title;
@@ -227,7 +228,7 @@ class wowprogress_widget extends WP_Widget {
 					echo '<span class="difficulty">'.($complete_hc && $progress_count["myth"] > 0 ? "M" : (($complete && $progress_count["hc"] > 0) ? "HC" : "N")).'</span>';
 				}
                 if(wowp_get($instance, $raid['tag']."_".$bossid."_vid") != ""){
-                    echo '<a class="video_link" href="'.wowp_get($instance, $raid['tag']."_".$bossid."_vid").'">';
+                    echo '<a class="video_link" '.($VIDEOS_IN_NEW_WINDOW ? 'target="_blank"' : '').' href="'.wowp_get($instance, $raid['tag']."_".$bossid."_vid").'">';
 	                echo '<img src="'.self::asset_url(self::image_path(WOWPROGRESS_VIDEO_ICON)).'" />';
 	                echo '</a>';
 				}

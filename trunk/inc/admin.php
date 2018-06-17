@@ -77,6 +77,13 @@ function wowprogress_render_form() {
 					</td>
 				</tr>
 
+				<tr valign="top">
+					<th scope="row"><?php _e('Open Videos In New Window', 'wowprogress') ?></th>
+					<td>
+						<input name="wowprogress_options[videos_in_new_window]" type="checkbox" value="1" <?php if (isset($options['videos_in_new_window'])) { checked('1', $options['videos_in_new_window']); } ?> />
+					</td>
+				</tr>
+
 				<?php
                     $availableRaids = wowprogress_widget::load_raids_file();
                 ?>
