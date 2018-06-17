@@ -116,7 +116,9 @@ class wowprogress_widget extends WP_Widget {
     function widget($args, $instance){
 		extract($args, EXTR_SKIP);
 		$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
-        $PROGRESS_IN_TITLE = wowp_get($options, 'show_progress_in_raid_title', false);
+		$PROGRESS_IN_TITLE = wowp_get($options, 'show_progress_in_raid_title', false);
+		$DIFFICULTY_IN_TITLE = wowp_get($options, 'show_difficulty_in_raid_title', false);
+		$LETTERS_FOR_DIFFICULTY = wowp_get($options, 'letters_difficulty_display', false);
 
 		echo $before_widget;
 		if ( !empty( $instance['title'] ) )
@@ -179,10 +181,14 @@ class wowprogress_widget extends WP_Widget {
 			echo TAB.TAB.TAB.'<div class="raid_film">'.NL;
 			
 			// Start raid header
-			echo TAB.TAB.TAB.TAB.'<div class="raid_head'.($PROGRESS_IN_TITLE ? '' : ($complete_myth ? " myth" : ($complete_hc ? " hc" : ""))).'">';
-
-            if($PROGRESS_IN_TITLE)
-                echo '<span class="raid_progress">'.$progress.'/'.count($raid['bosses']).'</span>';
+			echo TAB.TAB.TAB.TAB.'<div class="raid_head'.($PROGRESS_IN_TITLE ? '' : ($complete_myth ? " myth" : ($complete_hc ? " hc" : ""))).''.'">';
+			if($PROGRESS_IN_TITLE)
+			
+				echo '<span class="raid_progress'.(!$LETTERS_FOR_DIFFICULTY ? ' icon ' . ($complete_hc && $progress_count["myth"] > 0 ? "myth" : (($complete && $progress_count["hc"] > 0) ? "hc" : "")) : '').'">'.$progress.'/'.count($raid['bosses']);
+				if($DIFFICULTY_IN_TITLE && $LETTERS_FOR_DIFFICULTY) {
+					echo ($complete_hc && $progress_count["myth"] > 0 ? " M" : (($complete && $progress_count["hc"] > 0) ? " HC" : " N"));
+				}
+				echo '</span>';
 
 			if(wowp_get($raid, 'achievement') && $complete && $instance["guild"] != "" && $instance[$raid['tag']."_time"] != "")
 				printf(WOWPROGRESS_ACHI, $raid['achievement'], rawurlencode($instance["guild"]), $instance[$raid['tag']."_time"], $raid['name']);
@@ -205,10 +211,10 @@ class wowprogress_widget extends WP_Widget {
                 if($n || $hc || $myth){
                     $css_class[] = "down";
                 }
-                if($myth)
-                    $css_class[] = "myth";
-                elseif($hc)
-                    $css_class[] = "hc";
+                if($myth && !$LETTERS_FOR_DIFFICULTY)
+                    $css_class[] = "myth icon";
+                elseif($hc && !$LETTERS_FOR_DIFFICULTY)
+                    $css_class[] = "hc icon";
 
                 if(count($css_class) > 0)
                     $css_class = join(" ", $css_class);
@@ -216,12 +222,16 @@ class wowprogress_widget extends WP_Widget {
                     $css_class = false;
 
                 echo TAB.TAB.TAB.TAB.TAB.'<li'.($css_class ? ' class="'.$css_class.'"' : '').'>';
-                echo $boss;
+				echo $boss;
+				if($LETTERS_FOR_DIFFICULTY) {
+					echo '<span class="difficulty">'.($complete_hc && $progress_count["myth"] > 0 ? "M" : (($complete && $progress_count["hc"] > 0) ? "HC" : "N")).'</span>';
+				}
                 if(wowp_get($instance, $raid['tag']."_".$bossid."_vid") != ""){
                     echo '<a class="video_link" href="'.wowp_get($instance, $raid['tag']."_".$bossid."_vid").'">';
 	                echo '<img src="'.self::asset_url(self::image_path(WOWPROGRESS_VIDEO_ICON)).'" />';
 	                echo '</a>';
-                }
+				}
+
                 echo '</li>'.NL;
             }
 

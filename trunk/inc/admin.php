@@ -61,6 +61,22 @@ function wowprogress_render_form() {
 					</td>
 				</tr>
 
+				<tr valign="top">
+					<th scope="row"><?php _e('Show Difficulty In Raid Title', 'wowprogress') ?></th>
+					<td>
+						<input name="wowprogress_options[show_difficulty_in_raid_title]" type="checkbox" value="1" <?php if (isset($options['show_difficulty_in_raid_title'])) { checked('1', $options['show_difficulty_in_raid_title']); } ?> />
+						<br />
+						<?php _e('Requires to also have "Show Progress in Raid Title" toggled on.', 'wowprogress') ?>
+					</td>
+				</tr>
+
+				<tr valign="top">
+					<th scope="row"><?php _e('Display Letters Instead of Skulls for Difficulty', 'wowprogress') ?></th>
+					<td>
+						<input name="wowprogress_options[letters_difficulty_display]" type="checkbox" value="1" <?php if (isset($options['letters_difficulty_display'])) { checked('1', $options['letters_difficulty_display']); } ?> />
+					</td>
+				</tr>
+
 				<?php
                     $availableRaids = wowprogress_widget::load_raids_file();
                 ?>
