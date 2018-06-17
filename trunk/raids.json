@@ -1,5 +1,25 @@
 [
     {
+        "achievement" : 12537,
+        "background" : "uldir",
+        "bosses" : [
+            "Taloc",
+            "MOTHER",
+            "Fetid Devourer",
+            "Zek'voz, Herald of N'zoth",
+            "Vectis",
+            "Zul, Reborn",
+            "Mythrax the Unraveler",
+            "G'huun"
+        ],
+        "exp" : "battle_for_azeroth",
+        "name" : "Uldir",
+        "tag" : "uldir"
+    },
+
+
+
+    {
         "achievement" : 12112,
         "background" : "atbt",
         "bosses" : [
