@@ -183,13 +183,13 @@ class wowprogress_widget extends WP_Widget {
 			
 			// Start raid header
 			echo TAB.TAB.TAB.TAB.'<div class="raid_head'.($PROGRESS_IN_TITLE ? '' : ($complete_myth ? " myth" : ($complete_hc ? " hc" : ""))).''.'">';
-			if($PROGRESS_IN_TITLE)
-			
+			if($PROGRESS_IN_TITLE) {
 				echo '<span class="raid_progress'.(!$LETTERS_FOR_DIFFICULTY ? ' icon ' . ($complete_hc && $progress_count["myth"] > 0 ? "myth" : (($complete && $progress_count["hc"] > 0) ? "hc" : "")) : '').'">'.$progress.'/'.count($raid['bosses']);
 				if($DIFFICULTY_IN_TITLE && $LETTERS_FOR_DIFFICULTY) {
 					echo ($complete_hc && $progress_count["myth"] > 0 ? " M" : (($complete && $progress_count["hc"] > 0) ? " HC" : " N"));
 				}
 				echo '</span>';
+			}
 
 			if(wowp_get($raid, 'achievement') && $complete && $instance["guild"] != "" && $instance[$raid['tag']."_time"] != "")
 				printf(WOWPROGRESS_ACHI, $raid['achievement'], rawurlencode($instance["guild"]), $instance[$raid['tag']."_time"], $raid['name']);
