@@ -2,8 +2,9 @@
 Contributors: martinek
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, legion
 Requires at least: 3.0
-Tested up to: 4.9.0
-Stable tag: 1.9.0
+Tested up to: 5.0-alpha-43320
+Stable tag: 1.10.0
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +55,12 @@ I have created package for FFXIV. If you are interested, let me know via email.
 4. Administration
 
 == Changelog ==
+
+= 1.10.0 =
+* added Uldir raid (patch 7.3)
+* added option to show difficulty with progress in raid title
+* added option to show letters instead of difficulty icons
+* added option to open video links in new window
 
 = 1.9.0 =
 * added Antorus, the Burning Throne raid (patch 7.3)
