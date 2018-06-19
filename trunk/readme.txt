@@ -57,7 +57,7 @@ I have created package for FFXIV. If you are interested, let me know via email.
 == Changelog ==
 
 = 1.10.0 =
-* added Uldir raid (patch 7.3)
+* added Uldir raid (patch 8.0.1)
 * added option to show difficulty with progress in raid title
 * added option to show letters instead of difficulty icons
 * added option to open video links in new window
