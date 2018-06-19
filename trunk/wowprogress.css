@@ -7,40 +7,40 @@
 /* Widget */
 
 #wowprogress ul {
-	margin-left: 0px !important;
-	list-style: none;
-	font-weight: bold;
+    margin-left: 0px !important;
+    list-style: none;
+    font-weight: bold;
 }
 
 /* poitner to indicate clickability*/
 #wowprogress .expansion_head, 
 #wowprogress .raid_head{
-	cursor: pointer;
+    cursor: pointer;
 }
 
 #wowprogress .expansion_head{
-	text-align: center;
+    text-align: center;
 }
 
 #wowprogress .expansion_head img{
-	width: 170px;
+    width: 170px;
 }
 
 #wowprogress .raid {
-	background-position: top center;
+    background-position: top center;
     background-size: cover;
-	margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 #wowprogress .raid_film{
     background: rgba(255,255,255,0.8);
-	margin: 0px 0px;
-	padding: 3px 3px;
+    margin: 0px 0px;
+    padding: 3px 3px;
 }
 
 #wowprogress .raid_head {
-	text-align: left;
-	font-weight: bold;
+    text-align: left;
+    font-weight: bold;
 }
 
 #wowprogress .raid_head .raid_progress{
@@ -48,12 +48,12 @@
 }
 
 #wowprogress .raid ul {
-	border-top: 1px dotted #000000;
-	margin-bottom: 0px;
+    border-top: 1px dotted #000000;
+    margin-bottom: 0px;
 }
 
 #wowprogress .difficulty {
-	float: right;
+    float: right;
 }
 
 #wowprogress .video_link {
@@ -72,10 +72,10 @@
 }
 
 #wowprogress .hc {
-	background-image: url('images/heroic_icon.png');
-	background-repeat: no-repeat;
-	padding-right: 18px;
-	background-position: center right;
+    background-image: url('images/heroic_icon.png');
+    background-repeat: no-repeat;
+    padding-right: 18px;
+    background-position: center right;
 }
 
 
@@ -83,6 +83,6 @@
     background-image: url('images/mythic_icon.png');
     background-repeat: no-repeat;
     background-position: center right;
-	padding-right: 18px;
+    padding-right: 18px;
 }
 

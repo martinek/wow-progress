@@ -9,10 +9,10 @@
 #wowprogress,
 #wowprogress .raid_head,
 #wowprogress .raid_head a {
-	color: #dddddd;
+    color: #dddddd;
     text-shadow: black 0 0 2px;
 }
 
 #wowprogress .down {
-	color: #40BF40 !important;
+    color: #40BF40 !important;
 }
