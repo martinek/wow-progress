@@ -47,13 +47,12 @@
     float: right;
 }
 
-
 #wowprogress .raid ul {
 	border-top: 1px dotted #000000;
 	margin-bottom: 0px;
 }
 
-#wowprogress .down .difficulty {
+#wowprogress .difficulty {
 	float: right;
 }
 
@@ -67,7 +66,12 @@
     vertical-align: middle;
 }
 
-#wowprogress .hc.icon, #wowprogress .raid_head .raid_progress.hc.icon {
+#wowprogress .hc,
+#wowprogress .myth {
+    min-height: 18px;
+}
+
+#wowprogress .hc {
 	background-image: url('images/heroic_icon.png');
 	background-repeat: no-repeat;
 	padding-right: 18px;
@@ -75,7 +79,7 @@
 }
 
 
-#wowprogress .myth.icon {
+#wowprogress .myth {
     background-image: url('images/mythic_icon.png');
     background-repeat: no-repeat;
     background-position: center right;

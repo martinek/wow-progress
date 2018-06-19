@@ -113,6 +113,14 @@ class wowprogress_widget extends WP_Widget {
 			return WOWPROGRESS_PLUGIN_DIR. $path;
 	}
 
+    static function difficulty_letter($difficulty) {
+        switch ($difficulty) {
+            case 'myth': return 'M';
+            case 'hc' : return 'HC';
+            default: return 'N';
+        }
+    }
+
     function widget($args, $instance){
 		extract($args, EXTR_SKIP);
 		$options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
@@ -120,7 +128,7 @@ class wowprogress_widget extends WP_Widget {
 		$DIFFICULTY_IN_TITLE = wowp_get($options, 'show_difficulty_in_raid_title', false);
 		$LETTERS_FOR_DIFFICULTY = wowp_get($options, 'letters_difficulty_display', false);
 		$VIDEOS_IN_NEW_WINDOW = wowp_get($options, 'videos_in_new_window', false);
-		
+
 		echo $before_widget;
 		if ( !empty( $instance['title'] ) )
 			echo $before_title . $instance['title'] . $after_title;
@@ -174,6 +182,16 @@ class wowprogress_widget extends WP_Widget {
                 if(wowp_get($instance, $raid['tag']."_".$bossid."_myth") == "on") $progress_count["myth"]++;
                 else $complete_myth = false;
 			}
+
+            $raid_difficulty = 'normal';
+            if ($progress_count["myth"] > 0) {
+                $raid_difficulty = 'myth';
+            } else if ($progress_count["hc"] > 0) {
+                $raid_difficulty = 'hc';
+            }
+
+            $complete_difficulty = ($complete_myth ? 'myth' : ($complete_hc ? 'hc' : ($complete ? 'normal' : '')));
+
             $progress = $progress_count["normal"];
             if($progress_count["hc"] > 0) $progress = $progress_count["hc"];
             if($progress_count["myth"] > 0) $progress = $progress_count["myth"];
@@ -182,14 +200,31 @@ class wowprogress_widget extends WP_Widget {
 			echo TAB.TAB.TAB.'<div class="raid_film">'.NL;
 			
 			// Start raid header
-			echo TAB.TAB.TAB.TAB.'<div class="raid_head'.($PROGRESS_IN_TITLE ? '' : ($complete_myth ? " myth" : ($complete_hc ? " hc" : ""))).''.'">';
-			if($PROGRESS_IN_TITLE) {
-				echo '<span class="raid_progress'.(!$LETTERS_FOR_DIFFICULTY ? ' icon ' . ($complete_hc && $progress_count["myth"] > 0 ? "myth" : (($complete && $progress_count["hc"] > 0) ? "hc" : "")) : '').'">'.$progress.'/'.count($raid['bosses']);
-				if($DIFFICULTY_IN_TITLE && $LETTERS_FOR_DIFFICULTY) {
-					echo ($complete_hc && $progress_count["myth"] > 0 ? " M" : (($complete && $progress_count["hc"] > 0) ? " HC" : " N"));
-				}
-				echo '</span>';
-			}
+			echo TAB.TAB.TAB.TAB.'<div class="raid_head">';
+
+			if ($PROGRESS_IN_TITLE) {
+                // If progress is shown, show current progress for current difficulty
+                $title_class = 'raid_progress';
+                if ($DIFFICULTY_IN_TITLE && !$LETTERS_FOR_DIFFICULTY) {
+                    $title_class .= ' ' . $raid_difficulty;
+                }
+
+                echo '<span class="' . $title_class. '">';
+                echo $progress . '/' . count($raid['bosses']);
+
+                if ($DIFFICULTY_IN_TITLE && $LETTERS_FOR_DIFFICULTY) {
+                    echo " " . self::difficulty_letter($raid_difficulty);
+                }
+
+                echo '</span>';
+			} else if ($complete_difficulty) {
+                // If progress is not shown in title, show hardest completed difficulty, if any
+                if ($LETTERS_FOR_DIFFICULTY) {
+                    echo '<span class="raid_progress">' . self::difficulty_letter($complete_difficulty) . '</span>';
+                } else {
+                    echo '<span class="raid_progress ' . $complete_difficulty . '"></span>';
+                }
+            }
 
 			if(wowp_get($raid, 'achievement') && $complete && $instance["guild"] != "" && $instance[$raid['tag']."_time"] != "")
 				printf(WOWPROGRESS_ACHI, $raid['achievement'], rawurlencode($instance["guild"]), $instance[$raid['tag']."_time"], $raid['name']);
@@ -208,30 +243,34 @@ class wowprogress_widget extends WP_Widget {
                 $n = wowp_get($instance, $raid['tag']."_".$bossid) == "on";
                 $hc = wowp_get($instance, $raid['tag']."_".$bossid."_hc") == "on";
                 $myth = wowp_get($instance, $raid['tag']."_".$bossid."_myth") == "on";
+                $boss_difficulty = ($myth ? 'myth' : ($hc ? 'hc' : ($n ? 'normal' : false)));
 
-                if($n || $hc || $myth){
+                if ($boss_difficulty){
                     $css_class[] = "down";
-                }
-                if($myth && !$LETTERS_FOR_DIFFICULTY)
-                    $css_class[] = "myth icon";
-                elseif($hc && !$LETTERS_FOR_DIFFICULTY)
-                    $css_class[] = "hc icon";
 
-                if(count($css_class) > 0)
+                    if (!$LETTERS_FOR_DIFFICULTY) {
+                        $css_class[] = $boss_difficulty;
+                    }
+                }
+
+                if (count($css_class) > 0) {
                     $css_class = join(" ", $css_class);
-                else
+                } else {
                     $css_class = false;
+                }
 
                 echo TAB.TAB.TAB.TAB.TAB.'<li'.($css_class ? ' class="'.$css_class.'"' : '').'>';
-				echo $boss;
-				if($LETTERS_FOR_DIFFICULTY) {
-					echo '<span class="difficulty">'.($complete_hc && $progress_count["myth"] > 0 ? "M" : (($complete && $progress_count["hc"] > 0) ? "HC" : "N")).'</span>';
-				}
+                echo $boss;
+
+                if ($boss_difficulty && $LETTERS_FOR_DIFFICULTY) {
+                    echo '<span class="difficulty">' . self::difficulty_letter($boss_difficulty) . '</span>';
+                }
+
                 if(wowp_get($instance, $raid['tag']."_".$bossid."_vid") != ""){
                     echo '<a class="video_link" '.($VIDEOS_IN_NEW_WINDOW ? 'target="_blank"' : '').' href="'.wowp_get($instance, $raid['tag']."_".$bossid."_vid").'">';
-	                echo '<img src="'.self::asset_url(self::image_path(WOWPROGRESS_VIDEO_ICON)).'" />';
-	                echo '</a>';
-				}
+                    echo '<img src="'.self::asset_url(self::image_path(WOWPROGRESS_VIDEO_ICON)).'" />';
+                    echo '</a>';
+                }
 
                 echo '</li>'.NL;
             }
