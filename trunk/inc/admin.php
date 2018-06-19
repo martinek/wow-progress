@@ -62,11 +62,9 @@ function wowprogress_render_form() {
 				</tr>
 
 				<tr valign="top">
-					<th scope="row"><?php _e('Show Difficulty In Raid Title', 'wowprogress') ?></th>
+					<th scope="row"><?php _e('Show Progress Difficulty in Raid Title', 'wowprogress') ?></th>
 					<td>
 						<input name="wowprogress_options[show_difficulty_in_raid_title]" type="checkbox" value="1" <?php if (isset($options['show_difficulty_in_raid_title'])) { checked('1', $options['show_difficulty_in_raid_title']); } ?> />
-						<br />
-						<?php _e('Requires to also have "Show Progress in Raid Title" toggled on.', 'wowprogress') ?>
 					</td>
 				</tr>
 
