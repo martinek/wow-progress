@@ -72,7 +72,7 @@ class wowprogress_widget extends WP_Widget {
     function register_plugin_scripts() {
         // Scripts
         wp_register_script('wowhead', '//wow.zamimg.com/widgets/power.js');
-        wp_register_script(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL . WOWPROGRESS_PLUGIN_SLUG . '.js');
+        wp_register_script(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL . WOWPROGRESS_PLUGIN_SLUG . '.js', array(), WOWPROGRESS_VERSION);
 
         wp_enqueue_script('jquery');
         wp_enqueue_script('wowhead');
