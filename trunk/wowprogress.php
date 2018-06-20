@@ -79,11 +79,11 @@ class wowprogress_widget extends WP_Widget {
         wp_enqueue_script(WOWPROGRESS_PLUGIN_SLUG);
 
         // Styles
-        wp_register_style(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL . WOWPROGRESS_PLUGIN_SLUG . '.css');
+        wp_register_style(WOWPROGRESS_PLUGIN_SLUG, WOWPROGRESS_PLUGIN_URL . WOWPROGRESS_PLUGIN_SLUG . '.css', array(), WOWPROGRESS_VERSION);
         wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG);
 
         $options = get_option(WOWPROGRESS_PLUGIN_SLUG.'_options');
-        wp_register_style(WOWPROGRESS_PLUGIN_SLUG.'_theme', theme_file_url($options['theme']));
+        wp_register_style(WOWPROGRESS_PLUGIN_SLUG.'_theme', theme_file_url($options['theme']), array(), WOWPROGRESS_VERSION);
         wp_enqueue_style(WOWPROGRESS_PLUGIN_SLUG.'_theme');
     }
 
