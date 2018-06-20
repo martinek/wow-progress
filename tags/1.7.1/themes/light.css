@@ -1,0 +1,18 @@
+#wowprogress .raid_film{
+    background: rgba(255,255,255,0.6); /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left,   rgba(255,255,255,0.8), rgba(255,255,255,0.1)); /* For Safari 5.0.8 to 6.0 */
+	background: -o-linear-gradient(right,       rgba(255,255,255,0.8), rgba(255,255,255,0.1)); /* For Opera 0.80.8.0.8 to 0.82.0 */
+	background: -moz-linear-gradient(right,     rgba(255,255,255,0.8), rgba(255,255,255,0.1)); /* For Firefox 3.6 to 0.85 */
+	background: linear-gradient(to right,       rgba(255,255,255,0.8), rgba(255,255,255,0.1)); /* Standard syntax */
+}
+
+#wowprogress,
+#wowprogress .raid_head,
+#wowprogress .raid_head a {
+    color: #222222;
+    text-shadow: white 0 0 2px;
+}
+
+#wowprogress .down {
+	color: darkgreen !important;
+}
