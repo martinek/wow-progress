@@ -1,5 +1,5 @@
 === WoW Progress ===
-Contributors: martinek
+Contributors: martinek, azkel
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, legion
 Requires at least: 3.0
 Tested up to: 5.0-alpha-43320
