@@ -2,8 +2,8 @@
 Contributors: martinek, azkel
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, legion
 Requires at least: 3.0
-Tested up to: 5.0-alpha-43320
-Stable tag: 1.10.1
+Tested up to: 5.1-beta1-44657
+Stable tag: 1.11.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -55,6 +55,9 @@ I have created package for FFXIV. If you are interested, let me know via email.
 4. Administration
 
 == Changelog ==
+
+= 1.11.0 =
+* add Battle of Dazar'alor raid (patch 8.1.0)
 
 = 1.10.1 =
 * add plugin version to stylesheet and script urls
