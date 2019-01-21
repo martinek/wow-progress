@@ -1,5 +1,23 @@
 [
     {
+        "achievement" : 13319,
+        "background" : "daz",
+        "bosses" : [
+            "Champion of the Light",
+            "Grong, the Jungle Lord",
+            "Jadefire Masters",
+            "Opulence Treasure Guardian",
+            "Conclave of the Chosen",
+            "King Rastakhan",
+            "High Tinker Mekkatorque",
+            "Stormwall Blockade",
+            "Jaina Proudmoore"
+        ],
+        "exp" : "battle_for_azeroth",
+        "name" : "Battle of Dazar'alor",
+        "tag" : "daz"
+    },
+    {
         "achievement" : 12537,
         "background" : "uldir",
         "bosses" : [
