@@ -3,7 +3,7 @@
  * Plugin Name: WoW Progress
  * Description: A widget that helps to display guild raid progress.
  * Author: freevision.sk
- * Version: 1.12.0
+ * Version: 1.13.0
  * Author URI: http://www.freevision.sk
  * Text Domain: wowprogress
  */
@@ -23,7 +23,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see http://www.gnu.org/licenses/.
  */
-define( 'WOWPROGRESS_VERSION', '1.12.0' );
+define( 'WOWPROGRESS_VERSION', '1.13.0' );
 if ( ! defined( 'WOWPROGRESS_PLUGIN_SLUG' ) )	define( 'WOWPROGRESS_PLUGIN_SLUG',	'wowprogress');
 if ( ! defined( 'WOWPROGRESS_PLUGIN_FILE' ) )	define( 'WOWPROGRESS_PLUGIN_FILE',	plugin_basename(__FILE__));
 if ( ! defined( 'WOWPROGRESS_PLUGIN_NAME' ) )	define( 'WOWPROGRESS_PLUGIN_NAME',	'WoW Progress');

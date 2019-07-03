@@ -1,5 +1,22 @@
 [
     {
+        "achievement" : 13734,
+        "background" : "aep",
+        "bosses" : [
+            "Abyssal Commander Sivara",
+            "Blackwater Behemoth",
+            "Radiance of Azshara",
+            "Lady Ashvane",
+            "Orgozoa",
+            "The Queen's Court",
+            "Za'qul",
+            "Queen Azshara"
+        ],
+        "exp" : "battle_for_azeroth",
+        "name" : "Azshara's Eternal Palace",
+        "tag" : "aep"
+    },
+    {
         "achievement" : 13420,
         "background" : "cos",
         "bosses" : [
