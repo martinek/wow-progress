@@ -2,8 +2,8 @@
 Contributors: martinek, azkel
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, battle for azeroth
 Requires at least: 3.0
-Tested up to: 5.2.2
-Stable tag: 1.13.0
+Tested up to: 5.2-beta3-45196
+Stable tag: 1.12.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -55,9 +55,6 @@ I have created package for FFXIV. If you are interested, let me know via email.
 4. Administration
 
 == Changelog ==
-
-= 1.13.0 =
-* add Azshara's Eternal Palace raid (patch 8.2.0.30430)
 
 = 1.12.0 =
 * add Crucible of Storms raid (patch 8.1.0.28724)
