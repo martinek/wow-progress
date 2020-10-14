@@ -1,9 +1,9 @@
 === WoW Progress ===
 Contributors: martinek, azkel
-Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, battle for azeroth
+Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, battle for azeroth, shadowlands
 Requires at least: 3.0
-Tested up to: 5.3.3
-Stable tag: 1.14.0
+Tested up to: 5.5.1
+Stable tag: 1.15.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ A widget that helps to display guild raid progress.
 == Description ==
 
 A widget that helps to display guild raid progress.
-Each boss have separate option to toggle kill, heroic kill and mythic kill. Contains all raids up to patch 7.2. Each raid can be toggled to be displayed and if shown or collapsed.
+Each boss have separate option to toggle kill, heroic kill and mythic kill. Each raid can be toggled to be displayed or not and if it should be shown or collapsed by default.
 
 There is theme support with sample Light and Dark theme. Also my own theme is attached if you are interested. You should create your own theme and customise it to match your needs.
 
@@ -21,6 +21,8 @@ Progress can be configured in widget menu.
 Theme and backgrounds toggle is in Settings > WoW Progress menu.
 
 If you managed to find bugs or want to correct some of my code, please don't hesitate to leave a comment or contact me on martinek@freevision.sk.
+
+For list of raids, check latest change log. I usually add raids as people report new patch coming up on the support forums.
 
 == Installation ==
 
@@ -55,6 +57,9 @@ I have created package for FFXIV. If you are interested, let me know via email.
 4. Administration
 
 == Changelog ==
+
+= 1.15.0 =
+* add Castle Nathria raid (patch 9.0.1)
 
 = 1.14.0 =
 * add Ny'alotha, the Waking City raid (patch 8.3.0.32151)

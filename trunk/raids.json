@@ -1,5 +1,24 @@
 [
     {
+        "achievement" : 14459,
+        "background" : "cn",
+        "bosses" : [
+            "Shriekwing",
+            "Altimor the Huntsman",
+            "Hungering Destroyer",
+            "Artificer Xy'Mox",
+            "Sun King's Salvation",
+            "Lady Inerva Darkvein",
+            "The Council of Blood",
+            "Sludgefist",
+            "Stoneborne Generals",
+            "Sire Denathrius"
+        ],
+        "exp" : "shadowlands",
+        "name" : "Castle Nathria",
+        "tag" : "cn"
+    },
+    {
         "achievement" : 14039,
         "background" : "nya",
         "bosses" : [
