@@ -1,5 +1,24 @@
 [
     {
+        "achievement" : 15126,
+        "background" : "sod",
+        "bosses" : [
+            "The Tarragrue",
+            "The Eye of the Jailer",
+            "The Nine",
+            "Remnant of Ner'zhul",
+            "Soulrender Dormazain",
+            "Painsmith Raznal",
+            "Guardian of the First Ones",
+            "Fatescribe Roh-Kalo",
+            "Kel'Thuzad",
+            "Sylvanas Windrunner"
+        ],
+        "exp" : "shadowlands",
+        "name" : "Sanctum of Domination",
+        "tag" : "sod"
+    },
+    {
         "achievement" : 14459,
         "background" : "cn",
         "bosses" : [
