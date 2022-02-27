@@ -2,8 +2,8 @@
 Contributors: martinek, azkel
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, battle for azeroth, shadowlands
 Requires at least: 3.0
-Tested up to: 5.7.2
-Stable tag: 1.16.0
+Tested up to: 5.9.1
+Stable tag: 1.17.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,9 @@ I have created package for FFXIV. If you are interested, let me know via email.
 4. Administration
 
 == Changelog ==
+
+= 1.17.0 =
+* add Sepulcher of the First Ones raid (patch 9.2)
 
 = 1.16.0 =
 * add Sanctum of Domination raid (patch 9.1)

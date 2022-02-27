@@ -1,5 +1,25 @@
 [
     {
+        "achievement" : 15491,
+        "background" : "sotfo",
+        "bosses" : [
+            "Vigilant Guardian",
+            "Skolex, the Insatiable Ravener",
+            "Artificer Xy'mox",
+            "Dausegne, the Fallen Oracle",
+            "Prototype Pantheon",
+            "Lihuvim, Principal Architech",
+            "Halondrus the Reclaimer",
+            "Anduin Wrynn",
+            "Lords of Dread",
+            "Rygelon",
+            "The Jailer, Zovaal"
+        ],
+        "exp" : "shadowlands",
+        "name" : "Sepulcher of the First Ones",
+        "tag" : "sotfo"
+    },
+    {
         "achievement" : 15126,
         "background" : "sod",
         "bosses" : [
