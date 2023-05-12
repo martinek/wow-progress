@@ -1,5 +1,23 @@
 [
     {
+        "achievement" : 18160,
+        "background" : "asc",
+        "bosses" : [
+            "Kazzara, the Hellforged",
+            "The Amalgamation Chamber",
+            "The Forgotten Experiments",
+            "Assault of the Zaqali",
+            "Rashok, the Elder",
+            "The Vigilant Stewart, Zskarn",
+            "Magmorax",
+            "Echo of Neltharion",
+            "Scalecommander Sarkareth"
+        ],
+        "exp" : "dragonflight",
+        "name" : "Aberrus, the Shadowed Crucible",
+        "tag" : "asc"
+    },
+    {
         "achievement" : 16356,
         "background" : "voti",
         "bosses" : [

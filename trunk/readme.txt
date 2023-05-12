@@ -2,8 +2,8 @@
 Contributors: martinek
 Tags: wow, warcraft, world of warcraft, guild, progress, widget, raid, boss, battle for azeroth, shadowlands, dragonflight
 Requires at least: 3.0
-Tested up to: 6.1.1
-Stable tag: 1.18.0
+Tested up to: 6.2
+Stable tag: 1.19.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,6 +57,9 @@ I have created package for FFXIV. If you are interested, let me know via email.
 4. Administration
 
 == Changelog ==
+
+= 1.19.0 =
+* add Aberrus, the Shadowed Crucible raid (patch 10.1)
 
 = 1.18.0 =
 * add Vault of the Incarnates raid (patch 10.0)
