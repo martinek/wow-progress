@@ -1,5 +1,23 @@
 [
     {
+        "achievement" : 19387,
+        "background" : "adh",
+        "bosses" : [
+            "Gnarlroot",
+            "Igira the Cruel",
+            "Volcoross",
+            "Council of Dreams: Urctos, Aerwynn, Pip",
+            "Larodar, Keeper of the Flame",
+            "Nymue, Weaver of the Cycle",
+            "Smolderon, the Firelord",
+            "Tindral Sageswift, Seer of the Flame",
+            "Fyrakk, the Blazing"
+        ],
+        "exp" : "dragonflight",
+        "name" : "Amirdrassil, the Dream's Hope",
+        "tag" : "adh"
+    },
+    {
         "achievement" : 18160,
         "background" : "asc",
         "bosses" : [
