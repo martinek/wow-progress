@@ -58,7 +58,7 @@ I have created package for FFXIV. If you are interested, let me know via email.
 
 == Changelog ==
 
-= 1.20.0 =
+= 1.21.0 =
 * add Nerub-ar Palace raid (patch 11.0)
 
 = 1.20.0 =
