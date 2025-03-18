@@ -1,5 +1,22 @@
 [
     {
+        "achievement": 41289,
+        "background": "lou",
+        "bosses": [
+            "Vexie and the Geargrinders",
+            "Cauldron of Carnage",
+            "Rik Reverb",
+            "Stix Bunkjunker",
+            "Sprocketmonger Lockenstock",
+            "The One-Armed Bandit",
+            "Mug'Zee, Heads of Security",
+            "Chrome King Gallywix"
+        ],
+        "exp": "the_war_within",
+        "name": "Liberation of Undermine",
+        "tag": "lou"
+    },
+    {
         "achievement": 19387,
         "background": "np",
         "bosses": [
