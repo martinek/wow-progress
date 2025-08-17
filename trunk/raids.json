@@ -1,5 +1,22 @@
 [
     {
+        "achievement": 41620,
+        "background": "mo",
+        "bosses": [
+            "Plexus Sentinel",
+            "Loom'ithar",
+            "Soulbinder Naazindhri",
+            "Forgeweaver Araz",
+            "The Soul Hunters",
+            "Fractillus",
+            "Nexus-King Salhadaar",
+            "Dimensius, the All-Devouring"
+        ],
+        "exp": "the_war_within",
+        "name": "Manaforge Omega",
+        "tag": "mo"
+    },
+    {
         "achievement": 41289,
         "background": "lou",
         "bosses": [
