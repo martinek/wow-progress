@@ -1,5 +1,41 @@
 [
     {
+        "achievement": 61609,
+        "background": "moq",
+        "bosses": [
+            "Belo'ren, Child of Al'ar",
+            "Midnight Falls"
+        ],
+        "exp": "midnight",
+        "name": "March on Quel’Danas",
+        "tag": "moq"
+    },
+    {
+        "achievement": 61612,
+        "background": "tdr",
+        "bosses": [
+            "Chimaerus the Undreamt God"
+        ],
+        "exp": "midnight",
+        "name": "The Dreamrift",
+        "tag": "tdr"
+    },
+    {
+        "achievement": 61606,
+        "background": "tvo",
+        "bosses": [
+            "Imperator Averzian",
+            "Vorasius",
+            "Fallen-King Salhadaar",
+            "Vaelgor & Ezzorak",
+            "Lightblinded Vanguard",
+            "Crown of the Cosmos"
+        ],
+        "exp": "midnight",
+        "name": "The Voidspire",
+        "tag": "tvo"
+    },
+    {
         "achievement": 41620,
         "background": "mo",
         "bosses": [
