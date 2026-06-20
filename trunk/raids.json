@@ -1,5 +1,15 @@
 [
     {
+        "achievement": 63242,
+        "background": "spf",
+        "bosses": [
+            "Rotmire"
+        ],
+        "exp": "midnight",
+        "name": "Sporefall",
+        "tag": "spf"
+    },
+    {
         "achievement": 61609,
         "background": "moq",
         "bosses": [
