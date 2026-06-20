@@ -72,24 +72,16 @@ The repo root is an SVN working copy of the WordPress.org plugin. `trunk/` is th
    - `trunk/wowprogress.php` — `WOWPROGRESS_VERSION` constant and the `Version:` plugin header
    - `trunk/readme.txt` — `Stable tag:` field and add a `== Changelog ==` entry
 
-3. **Commit trunk to SVN:**
+3. **Stage new files and create the SVN tag in one commit:**
    ```bash
-   svn commit trunk/ -m "v1.X.Y - Description"
+   svn update                       # ensure working copy is up to date first
+   svn add --force trunk/           # adds any new untracked files in trunk
+   svn cp trunk tags/1.X.Y          # local copy (becomes the tag on commit)
+   svn commit trunk/ tags/1.X.Y -m "v1.X.Y - Description"
+   svn update tags/1.X.Y            # sync tag to committed revision
    ```
 
-4. **Create the SVN tag** (copy from trunk):
-   ```bash
-   svn copy http://plugins.svn.wordpress.org/wow-progress/trunk \
-            http://plugins.svn.wordpress.org/wow-progress/tags/1.X.Y \
-            -m "Add svn tag"
-   ```
-
-5. **Update local tags directory** so git tracks the tag snapshot:
-   ```bash
-   svn update tags/1.X.Y
-   ```
-
-6. **Commit to git:**
+4. **Commit to git:**
    ```bash
    git add trunk/ tags/1.X.Y/
    git commit -m "v1.X.Y - Description"
